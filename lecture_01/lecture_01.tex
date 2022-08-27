@@ -1,4 +1,5 @@
 \documentclass[russian, 12pt]{beamer}
+\usepackage{multicol}
 \usepackage[T2A,T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \setcounter{secnumdepth}{3}
@@ -55,7 +56,11 @@
 
 \title{Введение. Основные понятия.}
 \subtitle{Алгоритмы и структуры данных}
-\author{Мулюгин Н.\texorpdfstring{\thinspace}{Lg}В.}
+\author{
+  Мулюгин Н.\texorpdfstring{\thinspace}{Lg}В.
+  \and
+  Кузнецов М.\texorpdfstring{\thinspace}{Lg}А.
+  }
 \date{03.09.2022}
 
 \begin{document}
@@ -65,25 +70,113 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Литература}
+\frametitle{Информационные источники}
   \begin{itemize}
-    \item Book 1. Lecture 2.
+    \item [1] А. В. Столяров. Введение в профессию.\\
+      http://stolyarov.info\\[0.5cm]
+
+    \item [2] К. Владимиров.\\
+    youtube.com/channel/UCvmBEbr9NZt7UEh9doI7$\_$A\\[0.5cm]
+
+    \item [3] Ю. Окуловский.\\ 
+    https://ulearn.me/
+
+  \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Информационные источники}
+  \begin{itemize}
+    \item [4] Томас Х. Кормен. Алгоритмы: построение и анализ.\\[0.5cm]
+
+    \item [5] Томас Х. Кормен. Алгоритмы. Вводный курс.\\[0.5cm]
+
+    \item [6] Род Стивенс. Алгоритмы. Теория и практическое применение.\\[0.5cm]
+    
+    \item [7] Никлаус Вирт. Алгоритмы и структуры данных.\\[0.5cm]
+    
+    \item [8] Д. Кнут. Искусство программирования.
+
   \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Алгоритм}
-Алгоритм это.
+\textbf{Алгоритм} представляет собой набор правил преобразования исходных данных(input) 
+в выходные(output).\\[0.2cm]
+Алгоритмы строятся для решения \textbf{вычислительных задач}.\\[0.2cm]
+\textbf{Свойства} алгоритма:\\[0.2cm]
+обязательные \hspace{3cm} необязательные
+\begin{multicols}{2}
+\begin{itemize}
+  \item [1] Конечность.\\[0.3cm]
+
+  \item [2] Дискретность.\\[0.3cm]
+
+  \item [3] Определенность.\\[0.3cm]
+  
+  \item [4] Правильность. \\[0.3cm]
+  
+  \item [5] Завершаемость. \\[0.3cm]
+  
+  \item [5] Массовость. \\
+
+\end{itemize}
+\end{multicols}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Способы представления алгоритмов}
-Алгоритм это.
+\frametitle{Анализ алгоритма}
+\textbf{Время работы} алгоритма - 
+число элементарных операций, которые он выполняет.\\[0.2cm]
+\textbf{Время работы в худшем случае} - 
+максимальное время работы для входов данного размера. 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Сложность алгоритма}
-Алгоритм это.
+\frametitle{O-символика}
+%I
+\begin{equation*}
+\text{f(n) = o(g(n))}
+  \begin{array}{l}
+  \forall\text{k > 0}\;\exists\text{n}_0\;  \forall \text{n >}\text{n}_0  \\
+  \text{f(n) < k $\cdot$ g(n)}
+  \end{array}
+\Leftrightarrow
+\lim_{n\rightarrow\infty}\frac{\text{f(n)}}{\text{g(n)}}=\text{0}
+\hspace{0.49cm}
+\text{f(n) $\prec$ g(n)}
+\end{equation*}
+\vspace{0.3cm}
+%II
+\begin{equation*}
+\text{f(n) = O(g(n))}
+  \begin{array}{l}
+    \exists\text{k > 0}\;\exists\text{n}_0\;  \forall \text{n >}\text{n}_0  \\
+    \text{f(n) < k $\cdot$ g(n)}
+  \end{array}
+\Leftrightarrow
+\lim_{n\rightarrow\infty}\frac{\text{f(n)}}{\text{g(n)}}<\infty
+\hspace{0.25cm}
+\text{f(n) $\preceq$ g(n)}
+\end{equation*}
+\vspace{0.3cm}
+%III
+\begin{equation*}
+\text{f(n) = $\Theta$(g(n))}
+%\hspace{0.2cm}
+  \begin{array}{l}
+    \exists\text{k}_1\text{k}_2 >\text{0}\;\exists\text{n}_0\hspace{0.5cm}\\
+    \forall \text{n >}\text{n}_0\\
+    \text{k}_1 \cdot \text{g(n)} < \text{f(n)}\\
+    \text{f(n)} < \text{k}_2 \cdot \text{g(n)}
+  \end{array}
+\hspace{0.2cm}
+\Leftarrow
+\lim_{n\rightarrow\infty}\frac{\text{f(n)}}{\text{g(n)}}=\text{c}
+\hspace{0.4cm}
+\text{f(n) $\approx$ g(n)}
+\end{equation*}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
