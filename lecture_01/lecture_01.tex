@@ -10,6 +10,31 @@
 \usepackage{paratype}
 \usepackage{hyperref}
 \usepackage{xcolor}
+\usepackage{listings}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\A}{\mathcal{A}}
@@ -128,15 +153,18 @@
 \begin{frame}
 \frametitle{Сложность алгоритма}
 \textbf{Время работы} алгоритма - 
-число элементарных операций, которые он выполняет.\\[0.2cm]
+число элементарных операций, которые он выполняет.\\[0.3cm]
 \textbf{Время работы алгоритма в худшем случае (временная сложность)} - 
-максимальное время работы для входов данного размера. \\[0.2cm]
-\textbf{Время работы алгоритма в среднем (средняя сложность)} - 
-максимальное время работы для входов данного размера.\\[0.2cm]
-\textbf{Время работы алгоритма в случайном среднем (рандомизированная сложность)} - 
-максимальное время работы для входов данного размера.\\[0.2cm]
-\textbf{Время работы алгоритма в среднем (ароматизированная сложность)} - 
-максимальное время работы для входов данного размера.
+максимальное время работы для входов данного размера. \\[0.3cm]
+\textbf{Асимптотическая сложность алгоритма} - 
+оценка, характеризующая вид зависимости времени работы алгоритма от длины входа.
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstset{style=mystyle}
+\begin{frame}
+\frametitle{Сложность алгоритма}
+\lstinputlisting[language=C++]{code/complex_1.cpp}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
