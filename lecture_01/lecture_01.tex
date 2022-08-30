@@ -61,13 +61,14 @@
 
 \makeatletter
 \usepackage{tikz}
+\usetikzlibrary{overlay-beamer-styles}
 \usepackage{pgfplots}
 % Remove warning about running in backwards compatibility mode
 \pgfplotsset{compat=1.17}
 \usepackage[all,cmtip]{xy}
 \usetheme{Pittsburgh}
 \usefonttheme{professionalfonts}
-\setbeamercovered{transparent}
+
 \setbeamertemplate{navigation symbols}{%
   \hspace{3.8em}%
   \vspace{0.5em}%
@@ -76,6 +77,7 @@
   \insertframenumber%
 }
 \makeatother
+\setbeamercovered{invisible}
 
 \usepackage{babel}
 
@@ -129,22 +131,24 @@
 \frametitle{Алгоритм}
 \textbf{Алгоритм} представляет собой набор правил преобразования исходных данных(input) 
 в выходные(output).\\[0.2cm]
+\pause
 Алгоритмы строятся для решения \textbf{вычислительных задач}.\\[0.2cm]
+\pause
 \textbf{Свойства} алгоритма:\\[0.2cm]
 обязательные \hspace{3cm} необязательные
 \begin{multicols}{2}
 \begin{itemize}
-  \item [1] Конечность.\\[0.3cm]
+  \item<4-> [1] Конечность.\\[0.3cm]
 
-  \item [2] Дискретность.\\[0.3cm]
+  \item<5-> [2] Дискретность.\\[0.3cm]
 
-  \item [3] Определенность.\\[0.3cm]
+  \item<6-> [3] Определенность.\\[0.3cm]
   
-  \item [4] Правильность. \\[0.3cm]
+  \item<7-> [4] Правильность. \\[0.3cm]
   
-  \item [5] Завершаемость. \\[0.3cm]
+  \item<8-> [5] Завершаемость. \\[0.3cm]
   
-  \item [5] Массовость. \\
+  \item<9-> [6] Массовость. \\
 
 \end{itemize}
 \end{multicols}
@@ -154,8 +158,10 @@
 \frametitle{Сложность алгоритма}
 \textbf{Время работы} алгоритма - 
 число элементарных операций, которые он выполняет.\\[0.3cm]
+\pause
 \textbf{Время работы алгоритма в худшем случае (временная сложность)} - 
 максимальное время работы для входов данного размера. \\[0.3cm]
+\pause
 \textbf{Асимптотическая сложность алгоритма} - 
 оценка, характеризующая вид зависимости времени работы алгоритма от длины входа.
 
@@ -165,6 +171,101 @@
 \begin{frame}
 \frametitle{Сложность алгоритма}
 \lstinputlisting[language=C++]{code/complex_1.cpp}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Переменные}
+
+\begin{center}
+\begin{tikzpicture}
+    \draw<1-3> (0,0) rectangle (1.8, 0.6);
+    \draw<1-3> (0.9,0.3) node[scale=1.5] {1001};
+    
+    %2
+    \draw<2-3> (-1, 1.5) node[scale=2, color=blue] {a};
+    \draw<2-3> (0.5, 1.5) node[scale=1.7, color=blue] {4};
+    \draw<2-3> (2.5, 1.5) node[scale=1.5, color=blue] {[-7$\div$8]};
+    %3
+    \draw<3-> (1, -1) node[scale=1.2] {Мы знаем тип а?};
+    %4
+    \draw<3-> (1, -2) node[scale=1.2] {Мы знаем диапозон значений!};
+    %5
+    \draw<4-> (-3,0) rectangle (-1.2, 0.6);
+    \draw<4-> (-2.1,0.3) node[scale=1.5] {1001};
+
+    \draw<4-> (3,0) rectangle (4.8, 0.6);
+    \draw<4-> (3.9,0.3) node[scale=1.5] {0011};
+
+    \draw<4-> (1, -3) node[scale=1.2] {Мы не знаем операции!};
+    \draw<4-> (-3, 1.5) node[scale=2, color=blue] {a};
+    \draw<4-> (-1.5, 1.5) node[scale=1.7, color=blue] {4};
+
+    \draw<4-> (0.8, 1.5) node[scale=1.5, color=blue] {[-7$\div$8]};
+    \draw<4-> [dashed] (-1.2, 0.6) -- (0, 1.3);
+    \draw<4-> [dashed] (3, 0.6) -- (1.6, 1.3);
+
+    \draw<4-> (3, 1.5) node[scale=1.7, color=blue] {4};
+    \draw<4-> (4.5, 1.5) node[scale=1.5, color=blue] {b};
+
+    
+\end{tikzpicture}
+\end{center}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Типы}
+
+\begin{itemize}
+  \item Что такое тип?\\[0.3cm]
+  \item value type: диапозон значений объекта\\[0.3cm]
+  \item object type: совокупность операций над объектом\\[0.15cm]
+  \begin{itemize}
+    \item 5/2 даст 2 для int но 2.5 для double\\[0.2cm]
+  \end{itemize}
+
+  \item Назовем целочисленный арифметический тип i4
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\begin{center}
+\begin{tikzpicture}
+  \draw (-3,0) rectangle (-1.2, 0.6);
+  \draw (-2.1,0.3) node[scale=1.5] {1001};
+
+  \draw (3,0) rectangle (4.8, 0.6);
+  \draw (3.9,0.3) node[scale=1.5] {0011};
+
+  \draw (-3, 1.5) node[scale=2, color=blue] {a};
+  \draw (-1.5, 1.5) node[scale=1.7, color=blue] {4};
+
+  \draw<-2> (0.8, 1.5) node[scale=1.5, color=blue] {i4};
+  \draw<-2> [dashed] (-1.2, 0.6) -- (0.5, 1.3);
+  \draw<-2> [dashed] (3, 0.6) -- (1.1, 1.3);
+
+  \draw (3, 1.5) node[scale=1.7, color=blue] {4};
+  \draw (4.5, 1.5) node[scale=1.5, color=blue] {b};
+  %2
+  \draw<2> (0.8, 2) node[scale=1, color=blue] {python};
+  \draw<2> (0.8, 2.5) node[scale=1, color=blue] {ruby};
+  %3
+  \draw<3-> (0.8, 2.5) node[scale=1.5, color=blue] {i4};
+  \draw<3-> [dashed] (-2.7, 1.7) -- (0.5, 2.5);
+  \draw<3-> [dashed] (4.2, 1.7) -- (1.1, 2.5);
+
+  \draw<3-> [dashed] (-2.7, 1.3) -- (-2.5, 0.7);
+  \draw<3-> [dashed] (4.2, 1.3) -- (4, 0.7);
+  \draw<4-> (0.8, -2) node[scale=1] {Имя навсегда связано с типом.};
+  \draw<4-> (0.8, 3) node[scale=1, color = blue] {с++};
+\end{tikzpicture}
+\end{center}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ссылки}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -249,6 +350,16 @@
 \end{equation*}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstset{style=mystyle}
+\begin{frame}
+\lstinputlisting[language=C++]{code/complex_1.cpp}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstset{style=mystyle}
+\begin{frame}
+\lstinputlisting[language=C++]{code/trap_divisor.cpp}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Классы сложности}
 Алгоритм со сложностью f(n) называется:
@@ -271,41 +382,7 @@
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Рекурсивные алгоритмы}
-Алгоритм это.
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Понятие типа}
-Алгоритм это.
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Основные типы данных}
-Алгоритм это.
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Представление числовых данных в памяти ЭВМ}
-Представление числовых данных в памяти ЭВМ.
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Указатели}
-Представление числовых данных в памяти ЭВМ.
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Порядок следования байтов}
-Представление числовых данных в памяти ЭВМ.
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Структуры и объединения }
-Представление числовых данных в памяти ЭВМ.
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 

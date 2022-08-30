@@ -1,6 +1,6 @@
 #include<iostream> //headers
 #include<string>
-//g++ -Wall -Werror -g --std=c++20
+//g++ -Wall -Werror -g --std=c++20 complex_1.cpp
 //g++ - compiler; -Wall - show all the errors; 
 //-Werror - treat warnings as errors
 int main()//entry point
