@@ -1,0 +1,29 @@
+\frametitle{Ссылки}
+Базовый синтаксис lvalue ссылок это одинарный амперсанд
+\begin{lstlisting}
+int x;
+int &y = x; // y - another name for x
+\end{lstlisting}
+\pause
+Не путать со взятием адреса!
+\pause
+\begin{columns}[T] % align columns
+\begin{column}{.48\textwidth}
+  \begin{lstlisting}
+  int x[2] = {10, 20};
+  int &xref = x[0];
+  int *xref = &x[0];
+  xref += 1;
+  xptr += 1;
+  assert(xref == 11);
+  assert(xptr == 20);
+  \end{lstlisting}
+\end{column}%
+\hfill%
+\begin{column}{.48\textwidth}
+  \begin{figure}
+    \includegraphics <3>[width=\linewidth, height=3cm]{img/lref_1.png}
+    \includegraphics <4>[width=\linewidth, height=3cm]{img/lref_2.png}
+  \end{figure}
+\end{column}%
+\end{columns}

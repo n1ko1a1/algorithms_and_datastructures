@@ -308,11 +308,113 @@
     \begin{itemize}
       \item nullptr
     \end{itemize}
+  \item p[2] == *(p+2)
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
+  \begin{center}
+  \begin{tikzpicture}
+    \draw (-4,0) rectangle (5.5, 0.6);
+    \draw (-1.75,0.3) node[scale=1.5] {00};
+  
+    \draw (-3.4,0.3) node[scale=1.5] {110};
+    \draw (0.9,0.3) node[scale=1.5] {1000110010111};
+    \draw (5,0.3) node[scale=1.5] {01};
+  
+    \draw (2.45,0.3) node[scale=1.5, color=teal] {0111};
+    \draw (3.9,0.3) node[scale=1.5, color=blue] {0011};
+    \draw (-3, 1.5) node[scale=1.5, color=red] {pb};
+    \draw (2.5, 1.5) node[scale=1.5, color=teal] {pb[0]};
+    \draw[dashed] (1.9,0) -- (1.9,-1);
+    \draw[dashed] (-3.7,0) -- (-3.7,-1.5);
+    \draw[dashed] (3.4,0) -- (3.4,-1.5);
+  
+    \draw (-3.6,-1.5)--(3.3,-1.5);
+    \draw (-3.6,-0.8)--(1.8,-0.8);
+  
+    \draw (-3, -0.6) node[scale=1] {pb};
+    \draw (0, -1.3) node[scale=1] {pb + 1 * sizeof(i4)};
+  
+    %8
+    \draw (-3.05,0.3) node[scale=1.51, color=red] {11001};
+    \draw[->, line width=0.5mm, color=orange]  (-2.6, 0) to[out=-20,in=-150] (1.9,-0);
+  
+    \draw (5.6, 1.7) node[scale=1.5, color=blue] {pb[1]};
+    \draw[dashed,color=blue] (4.2, 0.7) -- (5.5, 1.5);
+  
+    \draw (-2.5, 2.4) node[scale=1] {i4*};
+    \draw (3.8, 2.4) node[scale=1] {i4};
+    \draw [dashed] (3, 1.8) -- (3.7, 2.2);
+    \draw [dashed] (5, 2) -- (4, 2.2);
+    \draw [dashed,color=teal] (2.5, 0.7) -- (2.3, 1.3);
+    \draw [dashed,color=red] (-3, 0.7) -- (-3, 1.3);
+    \draw [dashed] (-3, 1.8) -- (-2.7, 2.2);
+  
+  \end{tikzpicture}
+  \end{center}
+  
+  \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
 \frametitle{Ссылки}
+\begin{itemize}
+  \item Два имени у одного объекта в С++.
+\end{itemize}
+\begin{center}
+\begin{tikzpicture}
+  \draw (-4,0) rectangle (5.5, 0.6);
+  \draw (-1.75,0.3) node[scale=1.5] {00};
+
+  \draw (-3,0.3) node[scale=1.5] {11001};
+  \draw (0.9,0.3) node[scale=1.5] {1000110010111};
+  \draw (5,0.3) node[scale=1.5] {01};
+  \draw (3.9,0.3) node[scale=1.5, color=blue] {0011};
+  \draw (2.5, 1.5) node[scale=1.5, color=blue] {a};
+  \draw (5.6, 1.7) node[scale=1.5, color=blue] {b};
+  \draw[dashed,color=blue] (4.2, 0.7) -- (5.5, 1.5);
+  \draw [dashed,color=blue] (3.2, 0.7) -- (2.6, 1.3);
+
+\end{tikzpicture}
+\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Ссылки}
+Базовый синтаксис lvalue ссылок это одинарный амперсанд
+\begin{lstlisting}
+int x;
+int &y = x; // y - another name for x
+\end{lstlisting}
+\pause
+Не путать со взятием адреса!
+\pause
+\begin{columns}[T] % align columns
+\begin{column}{.48\textwidth}
+  \begin{lstlisting}
+  int x[2] = {10, 20};
+  int &xref = x[0];
+  int *xref = &x[0];
+  xref += 1;
+  xptr += 1;
+  assert(xref == 11);
+  assert(xptr == 20);
+  \end{lstlisting}
+\end{column}%
+\hfill%
+\begin{column}{.48\textwidth}
+  \begin{figure}
+    \includegraphics <3>[width=\linewidth, height=3cm]{img/lref_1.png}
+    \includegraphics <4>[width=\linewidth, height=3cm]{img/lref_2.png}
+  \end{figure}
+\end{column}%
+\end{columns} 
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstset{style=mystyle}
+\begin{frame}
+\frametitle{Оценка сложности алгоритма}
+\lstinputlisting[language=C++]{code/complex_1.cpp}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -328,8 +430,6 @@
 \frametitle{Оценка сложности алгоритма}
 \begin{figure}
   \includegraphics[width=\linewidth, height=5cm]{img/scal_2.png}
-  %\caption{A boat.}
-  %\label{fig:boat1}
 \end{figure}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
