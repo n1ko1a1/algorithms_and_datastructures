@@ -1,19 +1,18 @@
+\begin{columns}[T] % align columns
+\begin{column}{.48\textwidth}
 \begin{lstlisting}[language=C++]
-#include<iostream>
-#include<string>
-#include<cmath>
-int main()
-{
-    int n, root;
-    std::cin >> n;
-    root = std::sqrt( n );
-    for( int i=2;i<=root;i++ ){
-        if(n%i == 0){//2 3 4 5 ... sqrt(n)
-            std::cout << i << std::endl;
-            return 0;
-        }
-    }
-    std::cout << n << " is prime" << std::endl;
-    return 0;
-}
+int n, root;
+std::cin >> n;
+root = std::sqrt( n );
+for(int i=2;i<=root;i++)
 \end{lstlisting}
+\end{column}%
+\hfill%
+\begin{column}{.48\textwidth}
+$f(n) = \Theta( \sqrt{n} )$\\[0.3cm]
+\pause
+$n = \Theta( 10^{|x|} )$\\[0.3cm]
+\pause
+$f(|x|) = \Theta\left( \sqrt{10^{|x|}} \right)$
+\end{column}%
+\end{columns}

@@ -572,6 +572,28 @@ int main()
 \end{lstlisting}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstset{style=mystyle}
+\begin{frame}[fragile]
+\begin{columns}[T] % align columns
+\begin{column}{.48\textwidth}
+\begin{lstlisting}[language=C++]
+int n, root;
+std::cin >> n;
+root = std::sqrt( n );
+for(int i=2;i<=root;i++)
+\end{lstlisting}
+\end{column}%
+\hfill%
+\begin{column}{.48\textwidth}
+$f(n) = \Theta( \sqrt{n} )$\\[0.3cm]
+\pause
+$n = \Theta( 10^{|x|} )$\\[0.3cm]
+\pause
+$f(|x|) = \Theta\left( \sqrt{10^{|x|}} \right)$
+\end{column}%
+\end{columns} 
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Домашнее задание}
 \begin{itemize}
