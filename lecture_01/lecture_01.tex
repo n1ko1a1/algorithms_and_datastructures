@@ -418,7 +418,7 @@ int &y = x; // y - another name for x
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Оценка сложности алгоритма}
+\frametitle{Масштаб роста фунций}
 \begin{figure}
   \includegraphics[width=\linewidth, height=5cm]{img/scal_1.png}
   %\caption{A boat.}
@@ -427,14 +427,14 @@ int &y = x; // y - another name for x
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Оценка сложности алгоритма}
+\frametitle{Масштаб роста фунций}
 \begin{figure}
   \includegraphics[width=\linewidth, height=5cm]{img/scal_2.png}
 \end{figure}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Оценка сложности алгоритма}
+\frametitle{Масштаб роста фунций}
 \begin{figure}
   \includegraphics[width=\linewidth, height=5cm]{img/scal_3.png}
   %\caption{A boat.}
@@ -443,7 +443,7 @@ int &y = x; // y - another name for x
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Оценка сложности алгоритма}
+\frametitle{Масштаб роста фунций}
 \begin{figure}
   \includegraphics[width=\linewidth, height=5cm]{img/scal_4.png}
   %\caption{A boat.}
@@ -502,11 +502,6 @@ int &y = x; // y - another name for x
 \lstinputlisting[language=C++]{code/complex_1.cpp}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\lstset{style=mystyle}
-\begin{frame}
-\lstinputlisting[language=C++]{code/trap_divisor.cpp}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Классы сложности}
 Алгоритм со сложностью f(n) называется:
@@ -529,8 +524,62 @@ int &y = x; // y - another name for x
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\lstset{style=mystyle}
+\begin{frame}[fragile]
+%\lstinputlisting[language=C++]{code/trap_divisor.cpp}
+\begin{lstlisting}[language=C++]
+#include<iostream> 
+#include<string>
+#include<cmath>
+int main()
+{
+    int n, root;
+    std::cin >> n;
+    root = std::sqrt( n );
+    for( int i=2;i<=root;i++ ){
+        if(n%i == 0){
+            std::cout << i << std::endl;
+            return 0;
+        }
+    }
+    std::cout << n << " is prime" << std::endl;
+    return 0;
+}  
+\end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstset{style=mystyle}
+\begin{frame}[fragile]
+%\lstinputlisting[language=C++]{code/trap_divisor.cpp}
+\begin{lstlisting}[language=C++]
+#include<iostream> 
+#include<string>
+#include<cmath>
+int main()
+{
+    int n, root;
+    std::cin >> n;
+    root = std::sqrt( n );
+    for( int i=2;i<=root;i++ ){
+        if(n%i == 0){//2 3 4 5 ... sqrt(n)
+            std::cout << i << std::endl;
+            return 0;
+        }
+    }
+    std::cout << n << " is prime" << std::endl;
+    return 0;
+}  
+\end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Домашнее задание}
+\begin{itemize}
+  \item Написать программу реализующую алгоритм Эратосфена.
+  \item Оценить сложность - написать в программе комментариями мысли и результат.
+  \item Сделать pull request в папку lecture$\_$01/homework/ с файлом решения.
+\end{itemize}
+\end{frame}
 
 
 \end{document}
