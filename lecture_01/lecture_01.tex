@@ -685,6 +685,19 @@ ans
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
+\frametitle{Масштаб роста фунций}
+$f(n) = 2\cdot n^2 \cdot C_2 + n \cdot C_4 + C_3.$\\[0.3cm]
+\begin{itemize}
+  \pause
+  \item Как максимально коротко и точно описать сложность алгоритма?\\[0.3cm]
+  \pause
+  \item Возьмем самое значимое слагаемое.\\[0.3cm]
+  \pause
+  \item Можем ли мы подтвердить интуицую математикой?
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
 \frametitle{O-символика}
 %I
 \begin{equation*}
@@ -730,9 +743,20 @@ ans
 \end{equation*}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\lstset{style=mystyle}
+%\lstset{style=mystyle}
 \begin{frame}
-\lstinputlisting[language=C++]{code/complex_1.cpp}
+  $f(n) = 2\cdot n^2 \cdot C_2 + n \cdot C_4 + C_3.$\\[0.1cm]
+  $g(n) = n^2$\\[0.2cm]
+  $\lim_{n\rightarrow\infty}\frac{f(n)}{g(n)} =$\pause
+  $\lim_{n\rightarrow\infty}\frac{2\cdot n^2 \cdot C_2 + 
+  n \cdot C_4 + C_3}{n^2}=$\\[0.3cm]\pause
+  $\lim_{n\rightarrow\infty}\frac{2\cdot n^2}{n^2}+
+  \lim_{n\rightarrow\infty}\frac{n \cdot C_4}{n^2}+
+  \lim_{n\rightarrow\infty}\frac{C_3}{n^2}=$\\[0.3cm]\pause
+  $\lim_{n\rightarrow\infty}\frac{2}{1}+
+  \lim_{n\rightarrow\infty}\frac{C_4}{n}+
+  \lim_{n\rightarrow\infty}\frac{C_3}{n^2}=$\\[0.3cm]\pause
+  $2 + 0 + 0 = 2$
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
