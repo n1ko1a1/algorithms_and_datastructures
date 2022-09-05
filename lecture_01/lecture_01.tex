@@ -84,9 +84,9 @@
 \title{Введение. Основные понятия.}
 \subtitle{Алгоритмы и структуры данных}
 \author{
-  Мулюгин Н.\texorpdfstring{\thinspace}{Lg}В.
-  \and
-  Кузнецов М.\texorpdfstring{\thinspace}{Lg}А.
+  Мулюгин Николай
+  %\and
+  %Кузнецов Максим \texorpdfstring{\thinspace}{Lg}А.
   }
 \date{03.09.2022}
 
@@ -128,6 +128,20 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
+\frametitle{Мотивация}
+  \begin{itemize}
+    \item Применение в науке.\\[0.5cm]
+
+    \item Трудоустройство. Вопросы на собеседовании.\\[0.5cm]
+
+    \item Общение с коллегами.\\[0.5cm]
+    
+    \item Повседневное применение.\\[0.5cm]
+
+  \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
 \frametitle{Алгоритм}
 \textbf{Алгоритм} представляет собой набор правил преобразования исходных данных(input) 
 в выходные(output).\\[0.2cm]
@@ -155,12 +169,31 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
+  \frametitle{Сложность алгоритма мотивация}
+  Есть алгоритм. Что дальше?\\[0.3cm]
+  \pause
+  \begin{itemize}
+
+    \item Анализировать алгоритм.\\[0.5cm]
+    \pause
+    \item Сравнивать различные алгоритмы.\\[0.5cm]
+    \pause
+    \item Понять как поведет себя алгоритм в будущем.\\[0.5cm]
+    
+  \end{itemize}
+  
+  \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
 \frametitle{Сложность алгоритма}
 \textbf{Время работы} алгоритма - 
 число элементарных операций, которые он выполняет.\\[0.3cm]
 \pause
 \textbf{Время работы алгоритма в худшем случае (временная сложность)} - 
 максимальное время работы для входов данного размера. \\[0.3cm]
+\pause
+\textbf{Емкостная сложность} - 
+максимально используемый объем памяти для входов данного размера. \\[0.3cm]
 \pause
 \textbf{Асимптотическая сложность алгоритма} - 
 оценка, характеризующая вид зависимости времени работы алгоритма от длины входа.
@@ -172,6 +205,51 @@
 \frametitle{Сложность алгоритма}
 \lstinputlisting[language=C++]{code/complex_1.cpp}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstset{style=mystyle}
+\begin{frame}[fragile]
+\frametitle{Сложность алгоритма}
+Посчитаем сложность алгоритма - функцию $f: N\rightarrow N$ которая 
+на вход берет n - длину входа и возвращает
+число элементарных операций для данного n.\\[0.3cm]
+\begin{lstlisting}[language=C++]
+int n = input.size();
+int sum = 0;
+for( int i = 0; i < n; i++ )
+    for( int j = 0; j < 2 * i; j++ )
+        sum++; 
+\end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstset{style=mystyle}
+\begin{frame}[fragile]
+\frametitle{Сложность алгоритма}
+\begin{lstlisting}[language=C++]
+int n = input.size();
+int sum = 0;
+for( int i = 0; i < n; i++ )//n
+    for( int j = 0; j < 2 * i; j++ )
+    //01 0123 012345 0123456 012..2i-1
+        sum++;//0 + 2 + 4 + 6 + ... 2(n-1)  
+\end{lstlisting}
+$f(n) = n \cdot (C_= + C_< + C_* + C_+) +$\\
+$ + 2\cdot n \cdot (n-1) \cdot (C_= + C_< + C_* + C_+) + C_{in} + C_{out}$\\[0.3cm]
+f(n) - характеристика нашего алгоритма. \\
+Какие выводы мы можем сделать по ней?
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Сложность алгоритма мотивация}
+  \begin{itemize}
+    \item Анализировать алгоритм.\\[0.5cm]
+    
+    \item Сравнивать различные алгоритмы.\\[0.5cm]
+  
+    \item Понять как поведет себя алгоритм в будущем.\\[0.5cm]
+    
+  \end{itemize}
+  
+  \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Переменные}
@@ -293,6 +371,7 @@
   \draw<8> (1.6, 2.4) node[scale=1] {i4* [0$\div$26]};
   \draw<8> [dashed] (1, 1.8) -- (1.4, 2.2);
   \draw<8> (-1.4, -0.5) node[scale=0.7] {points-to};
+  \draw<5> (-1.4, -1) node[scale=1.2] {RAM - random access memory};
 
 
 
@@ -412,15 +491,185 @@ int &y = x; // y - another name for x
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \lstset{style=mystyle}
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Оценка сложности алгоритма}
-\lstinputlisting[language=C++]{code/complex_1.cpp}
+Чем мы тут занимаемся???
+\begin{lstlisting}[language=C++]
+int n = input.size();
+int sum = 0;
+for( int i = 0; i < n; i++ )//n
+  for( int j = 0; j < 2 * i; j++ )
+  //01 0123 012345 0123456 012..2i-1
+      sum++;//0 + 2 + 4 + 6 + ... 2(n-1)  
+\end{lstlisting}
+  $f(n) = n \cdot (C_= + C_< + C_* + C_+) +$\\
+  $ + 2\cdot n \cdot (n-1) \cdot (C_= + C_< + C_* + C_+) + C_{in} + C_{out}$\\[0.3cm]
+  \begin{itemize}
+    \item f(n) - характеристика нашего алгоритма.
+    \item Какие выводы мы можем сделать по ней?
+    %\item<2> $f(n) :\; n \rightarrow \infty$
+  \end{itemize}
+  
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Мотивация!!!}
+Есть алгоритм. Что дальше?\\[0.3cm]
+
+\begin{itemize}
+
+  \item Анализировать алгоритм.\\[0.5cm]
+  
+  \item Понять как поведет себя алгоритм в будущем.\\[0.5cm]
+  
+  \item Сравнивать различные алгоритмы.\\[0.5cm]
+  
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Анализировать алгоритм}
+\begin{lstlisting}[language=C++]
+int n = input.size();
+int sum = 0;
+for( int i = 0; i < n; i++ )//n
+  for( int j = 0; j < 2 * i; j++ )
+  //01 0123 012345 0123456 012..2i-1
+      sum++;//0 + 2 + 4 + 6 + ... 2(n-1)  
+\end{lstlisting}
+$f(n) = n \cdot (C_= + C_< + C_* + C_+) +$\\
+$ + 2\cdot n \cdot (n-1) \cdot (C_= + C_< + C_* + C_+) + C_{in} + C_{out}$\\[0.2cm]
+\pause
+f(n)- показывает зависимость алгоритма от длины входа.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Понять как поведет себя алгоритм в будущем}
+\begin{lstlisting}[language=C++]
+int n = input.size();
+int sum = 0;
+for( int i = 0; i < n; i++ )//n
+  for( int j = 0; j < 2 * i; j++ )
+  //01 0123 012345 0123456 012..2i-1
+      sum++;//0 + 2 + 4 + 6 + ... 2(n-1)  
+\end{lstlisting}
+$f(n) = n \cdot (C_= + C_< + C_* + C_+) +$\\
+$ + 2\cdot n\cdot (n-1) \cdot (C_= + C_< + C_* + C_+) + C_{in} + C_{out}$\\[0.2cm]
+\pause
+$f(n) :\; n \rightarrow \infty$
+\pause
+\begin{lstlisting}[language=python]
+f(n) = n*(1+1+1+1) + 2*n*(n-1)*(1+1+1+1) + 5 + 5
+plot(f, (n,0,100), axes_labels=['n','f(n)']) 
+\end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Понять как поведет себя алгоритм в будущем}
+\begin{figure}
+  \includegraphics[width=0.8\linewidth, height=5cm]{img/complexity_1.png}
+  %\caption{A boat.}
+  %\label{fig:boat1}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Масштаб роста фунций}
+$f(n) = n \cdot (C_= + C_< + C_* + C_+) +$\\
+$ + 2\cdot n\cdot (n-1) \cdot (C_= + C_< + C_* + C_+) + C_{in} + C_{out}=$\\
+\pause
+$= n \cdot C_1 + 2\cdot n\cdot (n-1) \cdot C_2 + C_3=$\\
+\pause
+$= 2\cdot n^2 \cdot C_2 + n \cdot(C_1 -2\cdot C_2) + C_3=$\\[0.2cm]
+\pause
+$= 2\cdot n^2 \cdot C_2 + n \cdot C_4 + C_3.$\\[0.2cm]
+\pause
+Может быть нам более интеерсен масштаб роста функции?\\[0.2cm]
+\pause
+Не все ли равно какие коэффициенты $C_1$, $C_2$, $C_3$, $C_4$\\ 
+при $n\rightarrow\infty$? 
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Масштаб роста фунций}
+\begin{lstlisting}[language=Python]
+f(n) = 10*n^2 + n *10 + 10
+g(n) = 100*n^2 + n *100 + 100
+
+f_p = plot(f, (n,0,100))
+g_p = plot(g, (n,0,100))
+ans = f_p + g_p 
+
+ans += text("g(n)", (100, +200000))
+ans += text("f(n)", (80, +800000))
+ans
+\end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Масштаб роста фунций}
+\begin{figure}
+\includegraphics[width=0.8\linewidth, height=5cm]{img/complexity_2.png}
+%\caption{A boat.}
+%\label{fig:boat1}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Масштаб роста фунций}
+\begin{lstlisting}[language=Python]
+f(n) = 10*n^2 + n *10 + 10
+g(n) = 100*n^2 + n *100 + 100
+
+f_p = plot(f, (n,0,100000000))
+g_p = plot(g, (n,0,100000000))
+ans = f_p + g_p 
+ans+= text("g(n)", (80000000, +100000000000000000))
+ans+= text("f(n)", (80000000, +900000000000000000))
+ans
+\end{lstlisting}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Масштаб роста фунций}
 \begin{figure}
-  \includegraphics[width=\linewidth, height=5cm]{img/scal_1.png}
+\includegraphics[width=\linewidth, height=5cm]{img/complexity_3.png}
+%\caption{A boat.}
+%\label{fig:boat1}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Масштаб роста фунций}
+\begin{lstlisting}[language=Python]
+f(n) = 10*n^2 + n *10 + 10
+quad(n) = 2*n^2
+lin(n) = 1000*n
+
+f_p = plot(f, (n,0,1000))
+quad_p = plot(quad, (n,0,1000), color='red')
+lin_p = plot(lin, (n,0,1000),color = 'green')
+ex_p = plot(ex, (n,0,1000),color = 'brown')
+
+ans = f_p + quad_p + lin_p
+ans
+\end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Масштаб роста фунций}
+\begin{figure}
+\includegraphics[width=\linewidth, height=5cm]{img/complexity_4.png}
+%\caption{A boat.}
+%\label{fig:boat1}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Масштаб роста фунций}
+\begin{figure}
+  \includegraphics[width=\linewidth, height=5cm]{img/complexity_5.png}
   %\caption{A boat.}
   %\label{fig:boat1}
 \end{figure}
@@ -429,23 +678,7 @@ int &y = x; // y - another name for x
 \begin{frame}
 \frametitle{Масштаб роста фунций}
 \begin{figure}
-  \includegraphics[width=\linewidth, height=5cm]{img/scal_2.png}
-\end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Масштаб роста фунций}
-\begin{figure}
-  \includegraphics[width=\linewidth, height=5cm]{img/scal_3.png}
-  %\caption{A boat.}
-  %\label{fig:boat1}
-\end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Масштаб роста фунций}
-\begin{figure}
-  \includegraphics[width=\linewidth, height=5cm]{img/scal_4.png}
+  \includegraphics[width=\linewidth, height=5cm]{img/complexity_6.png}
   %\caption{A boat.}
   %\label{fig:boat1}
 \end{figure}
