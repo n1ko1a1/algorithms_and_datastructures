@@ -1,0 +1,13 @@
+\frametitle{Массив}
+\begin{center}
+  \includegraphics[scale=0.5]{img/array.png}\\
+\end{center}
+Массивы в C++
+\begin{lstlisting}[language=C++]
+//create array with 4 int type elements
+int[4] arr = {5,7,2,3};
+//read value at 3
+int three = arr[3];//three = 3
+//write to 3
+arr[3] = 4;//[5 7 2 4]
+\end{lstlisting}
