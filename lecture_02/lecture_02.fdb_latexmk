@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1662408299 "/home/nikolai/repos/algorithms_and_datastructures/lecture_02/lecture_02.tex" "lecture_02.pdf" "lecture_02" 1662408300
-  "/home/nikolai/repos/algorithms_and_datastructures/lecture_02/lecture_02.tex" 1662408298 4619 3aac788f4ce5754fdec8e9631b737cc9 ""
+["pdflatex"] 1662492931 "/home/nikolai/repos/algorithms_and_datastructures/lecture_02/lecture_02.tex" "lecture_02.pdf" "lecture_02" 1662492932
+  "/home/nikolai/repos/algorithms_and_datastructures/lecture_02/lecture_02.tex" 1662492931 7627 3c70c1228922d49e1f1a1e1de1d912f6 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/paratype/ptmono_t2a.enc" 1650179560 2655 3a56949efa1dd5887292d06ea23a66ea ""
   "/usr/share/texmf-dist/fonts/enc/dvips/paratype/ptsans_t2a.enc" 1650179560 2670 3e1d65f09f88a5c6923f1d6e22349bf3 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -42,7 +42,9 @@
   "/usr/share/texmf-dist/fonts/type1/paratype/ptsans/PTS55F.pfb" 1650179560 113414 3584029904ed46f5e02af20c9bf0e189 ""
   "/usr/share/texmf-dist/fonts/type1/paratype/ptsans/PTS75F.pfb" 1650179560 118271 99bc51fb5f08a964f0ed0deccb088d4a ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1650183167 36741 fa121aac0049305630cf160b86157ee4 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1650183167 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1650183167 32722 d7379af29a190c3f453aba36302ff5a9 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1650183167 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1650183167 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texmf-dist/fonts/vf/paratype/ptmono/PTMono-Regular-tlf-t2a.vf" 1650179560 1720 3ae5d2cc108fb3f9c8c7d3956f063e9a ""
   "/usr/share/texmf-dist/fonts/vf/paratype/ptsans/PTSans-Bold-tlf-t2a.vf" 1650179560 1716 ea6965d9ea106546f558c41cb3411f5d ""
@@ -314,11 +316,11 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1655018123 4281220 822941bc68bde1085e18d1e3ee7264bf ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1655018103 2927662 8aa9a4fc1ae10c8e4a3e04e393ad8a3f ""
   "img/array.png" 1662406058 9699 a586ff2ce3be7c79287f4df7eb6ce8ef ""
-  "lecture_02.aux" 1662408299 1728 38e8c441befc700e91100871b67440ff "pdflatex"
-  "lecture_02.nav" 1662408299 671 3507aa8276ba658ea30ea34059f85a04 "pdflatex"
+  "lecture_02.aux" 1662492932 2240 2a947c353f470ba517cc181f37e74019 "pdflatex"
+  "lecture_02.nav" 1662492932 1039 2aee29d8daf6f90c8475413b8f82c5cc "pdflatex"
   "lecture_02.out" 0 -1 0 "pdflatex"
-  "lecture_02.tex" 1662408298 4619 3aac788f4ce5754fdec8e9631b737cc9 ""
-  "lecture_02.vrb" 1662408299 322 2c04caa9477947aa132f0995045c0a3e "pdflatex"
+  "lecture_02.tex" 1662492931 7627 3c70c1228922d49e1f1a1e1de1d912f6 ""
+  "lecture_02.vrb" 1662492932 1412 f6348d8e8f9e898d47b0cf2215d7daae "pdflatex"
   (generated)
   "lecture_02.aux"
   "lecture_02.log"
