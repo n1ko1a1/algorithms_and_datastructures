@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.6.12)  7 SEP 2022 00:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.6.12)  8 SEP 2022 01:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1247,7 +1247,36 @@ File: T2APTMono-TLF.fd 2014/02/02 Font definitions for T2A/PTMono-TLF.
 
 ] (./lecture_02.vrb) [17
 
-] [18
+] (./lecture_02.vrb) [18
+
+] (./lecture_02.vrb) [19
+
+] (./lecture_02.vrb) [20
+
+] (./lecture_02.vrb) [21
+
+]
+\openout4 = `lecture_02.vrb'.
+
+ (./lecture_02.vrb) [22
+
+] (./lecture_02.vrb) [23
+
+] (./lecture_02.vrb) [24
+
+] (./lecture_02.vrb) [25
+
+] (./lecture_02.vrb) [26
+
+] (./lecture_02.vrb) [27
+
+] (./lecture_02.vrb) [28
+
+] (./lecture_02.vrb) [29
+
+] (./lecture_02.vrb) [30
+
+] [31
 
 ]
 \tf@nav=\write7
@@ -1264,18 +1293,18 @@ Package rerunfilecheck Info: File `lecture_02.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 41627 strings out of 478238
- 931028 string characters out of 5850456
- 1664993 words of memory out of 5000000
- 59005 multiletter control sequences out of 15000+600000
+ 41703 strings out of 478238
+ 932120 string characters out of 5850456
+ 1665032 words of memory out of 5000000
+ 59029 multiletter control sequences out of 15000+600000
  521885 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,11n,122p,3303b,1364s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/paratype/ptmono_t2a.enc}{/usr/share/texmf-dist/fonts/enc/dvips/paratype/ptsans_t2a.enc}</usr/share/texmf-dist/fonts/type1/paratype/ptmono/PTM55F.pfb></usr/share/texmf-dist/fonts/type1/paratype/ptsans/PTS55F.pfb></usr/share/texmf-dist/fonts/type1/paratype/ptsans/PTS75F.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on lecture_02.pdf (18 pages, 112439 bytes).
+{/usr/share/texmf-dist/fonts/enc/dvips/paratype/ptmono_t2a.enc}{/usr/share/texmf-dist/fonts/enc/dvips/paratype/ptsans_t2a.enc}</usr/share/texmf-dist/fonts/type1/paratype/ptmono/PTM55F.pfb></usr/share/texmf-dist/fonts/type1/paratype/ptsans/PTS55F.pfb></usr/share/texmf-dist/fonts/type1/paratype/ptsans/PTS75F.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on lecture_02.pdf (31 pages, 157593 bytes).
 PDF statistics:
- 164 PDF objects out of 1000 (max. 8388607)
- 119 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
+ 251 PDF objects out of 1000 (max. 8388607)
+ 187 compressed objects within 2 object streams
+ 63 named destinations out of 1000 (max. 500000)
  48 words of extra memory for PDF output out of 10000 (max. 10000000)
 
