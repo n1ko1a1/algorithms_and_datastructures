@@ -11,7 +11,11 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{listings}
-
+\usepackage{array}
+\usepackage{mdwtab}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{tabularray}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -270,8 +274,33 @@ $\;\;n = 2^y;$\pause
 $\;\;y = ?;$\pause
 $\;\;\boxed{y = \log_2n}$\\[0.3cm]\pause
 $\boxed{\text{f(n)} = \Theta(\log_2n)}$
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\begin{figure}
+  \includegraphics[width=\linewidth]{img/lin_log.png}
+  %\caption{A boat.}
+  %\label{fig:boat1}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Резюме}
+  \renewcommand{\arraystretch}{1}
+\begin{center}
+  \begin{tabular}{  m{1.9cm\centering} | m{3cm\centering}| m{3cm\centering} | m{2cm\centering} } 
+    %\hline
+    Алгоритм поиска & Время работы в худшем случае  & Время работы в худшем случае & Нужна \newline сортировка \\ 
+    \hline
+    Линейный & $\Theta(n)$ & $\Theta(1)$ & Нет \\
+    
+    Бинарный &  $\Theta(\log_2n)$  & $\Theta(1)$ & Да\\ 
+  
+  \end{tabular}
+\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Домашнее задание}
 \begin{itemize}
