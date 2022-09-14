@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1662756698 "/home/nikolai/repos/algorithms_and_datastructures/lecture_02/lecture_02.tex" "lecture_02.pdf" "lecture_02" 1662756699
-  "/home/nikolai/repos/algorithms_and_datastructures/lecture_02/lecture_02.tex" 1662756698 9670 1e27ad6026508a3aa8313522de8010c0 ""
+["pdflatex"] 1663181719 "/home/nikolai/repos/algorithms_and_datastructures/lecture_02/lecture_02.tex" "lecture_02.pdf" "lecture_02" 1663181721
+  "/home/nikolai/repos/algorithms_and_datastructures/lecture_02/lecture_02.tex" 1663181719 9668 9831ec61b78a93ac10e076c21cb9114f ""
   "/usr/share/texmf-dist/fonts/enc/dvips/paratype/ptmono_t2a.enc" 1650179560 2655 3a56949efa1dd5887292d06ea23a66ea ""
   "/usr/share/texmf-dist/fonts/enc/dvips/paratype/ptsans_t2a.enc" 1650179560 2670 3e1d65f09f88a5c6923f1d6e22349bf3 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -328,11 +328,11 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1655018103 2927662 8aa9a4fc1ae10c8e4a3e04e393ad8a3f ""
   "img/array.png" 1662406058 9699 a586ff2ce3be7c79287f4df7eb6ce8ef ""
   "img/lin_log.png" 1662753100 16942 c72c0598c2984773a0f367f4617ab268 ""
-  "lecture_02.aux" 1662756699 2628 952ed615ea80f26c6672fd0dc53dc695 "pdflatex"
-  "lecture_02.nav" 1662756699 1319 9d106fa4ff47ddeee8f9d167e3de0f31 "pdflatex"
+  "lecture_02.aux" 1663181720 2628 952ed615ea80f26c6672fd0dc53dc695 "pdflatex"
+  "lecture_02.nav" 1663181720 1319 9d106fa4ff47ddeee8f9d167e3de0f31 "pdflatex"
   "lecture_02.out" 0 -1 0 "pdflatex"
-  "lecture_02.tex" 1662756698 9670 1e27ad6026508a3aa8313522de8010c0 ""
-  "lecture_02.vrb" 1662756699 649 4c139c09abc590e14717c196ae8c7320 "pdflatex"
+  "lecture_02.tex" 1663181719 9668 9831ec61b78a93ac10e076c21cb9114f ""
+  "lecture_02.vrb" 1663181720 649 4c139c09abc590e14717c196ae8c7320 "pdflatex"
   (generated)
   "lecture_02.aux"
   "lecture_02.log"

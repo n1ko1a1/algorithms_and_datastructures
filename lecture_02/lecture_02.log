@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.6.12)  10 SEP 2022 01:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.6.12)  14 SEP 2022 23:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1465,13 +1465,13 @@ Package rerunfilecheck Info: File `lecture_02.out' has not changed.
 Here is how much of TeX's memory you used:
  44514 strings out of 478238
  996853 string characters out of 5850456
- 1739768 words of memory out of 5000000
+ 1740226 words of memory out of 5000000
  61807 multiletter control sequences out of 15000+600000
  521885 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,13n,122p,3303b,1364s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/paratype/ptmono_t2a.enc}{/usr/share/texmf-dist/fonts/enc/dvips/paratype/ptsans_t2a.enc}</usr/share/texmf-dist/fonts/type1/paratype/ptmono/PTM55F.pfb></usr/share/texmf-dist/fonts/type1/paratype/ptsans/PTS55F.pfb></usr/share/texmf-dist/fonts/type1/paratype/ptsans/PTS75F.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on lecture_02.pdf (33 pages, 175958 bytes).
+Output written on lecture_02.pdf (33 pages, 176268 bytes).
 PDF statistics:
  263 PDF objects out of 1000 (max. 8388607)
  196 compressed objects within 2 object streams
