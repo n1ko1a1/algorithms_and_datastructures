@@ -1,1 +1,24 @@
-Напишите прогамму реализующую алгоритм эратосфена. На вход программе передается число N. На выход нужно выписать все простые числа меньшие или равные чем N.
+#include <iostream>
+
+using namespace std;
+
+int main() {
+	int n;
+	cout << "Enter n\n";
+	cin >> n;
+	int* array = new int[n + 1];
+
+	for (int i = 0; i <= n; i++)
+	{
+		array[i] = i;
+	}
+	for (int i = 2; i <= n; i++)
+	{
+		if (array[i] != 0)
+		{
+			cout << array[i] << " ";
+			for (int j = i * i; j < n + 1; j += i)
+				array[j] = 0;
+		}
+	}
+}
