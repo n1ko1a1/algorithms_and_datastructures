@@ -1,33 +1,52 @@
+//ФТ-210007_Устинов_Алексей_Практика_1
+
 #include <iostream>
-void PrintBoolArray(bool* arr, int len)
+#include <conio.h>
+#include <list>
+using namespace std;
+
+int main()
 {
-    for( int i =0; i < len; i++)
+    setlocale(LC_ALL, "Russian");   // Подключение русского языка
+    
+    int n = 0;
+    bool good = true;   // Переменная для проверки корректности введенного числа
+    do {    // Цикл обработки ввода
+        cout << "Введите целое число, которое не будут превосходить простые числа: ";
+        cin >> n;
+        if (!(good = cin.good())) {
+            cout << "Ошибка ввода. Попробуйте еще раз\n" << endl;
+        }
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    } while (!good);
+    
+    int *ones_and_zeros = new int[n+1];   // Создание динамического списка
+    for (size_t i = 0; i <= n; i++)
     {
-        std::cout << arr[i] << " ";
+        ones_and_zeros[i] = 1;  // Заполнение списка единицами
     }
-    std::cout << std::endl;
-}
 
-void FillBoolArray(bool* arr, int len, bool value)
-{
-    for( int i =0; i < len; i++)
+    cout << "Простые числа, меньшие или равные " << n << ":\n";
+    for (size_t k = 2; k <= n; k++)
     {
-        arr[i] = value;
+        if (ones_and_zeros[k] == 1)
+        {
+            for (size_t j = k + 1; j <= n; j++)  // Цикл замены 1 на 0 в списке (если число кратно k)
+            {
+                if (j % k == 0)
+                {
+                    ones_and_zeros[j] = 0;
+                }
+            }
+        }
+        else
+        {
+            continue;
+        }
+        cout << k << " ";   // Вывод очередного простого числа в консоль
     }
-}
-//inpit n
-//asdasd
-int main() {
-//0 1 2 3 4 5 6
-//- - + + - 5
-//p = 2 [2] = false
-    int n;
-    std::cin >> n;
-    bool* numbers = new bool[n];
-
-    FillBoolArray(numbers, n, true);
-    PrintBoolArray(numbers, n);
-
-
-    return 0;
+    delete[] ones_and_zeros;
+    cout << "\nРабота программы завершена" << endl;
+    _getch();
 }
