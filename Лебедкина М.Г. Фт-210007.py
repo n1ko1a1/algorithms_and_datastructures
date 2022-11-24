@@ -1,20 +1,30 @@
-n = int(input())
-
-a = []
-for i in range(n + 1):
-    a.append(i)
+#include <iostream>
+using namespace std;
  
-a[1] = 0
-
-i = 2
-while i <= n:
-    if a[i] != 0:
-        j = i + i
-        while j <= n:
-            a[j] = 0
-            j = j + i
-    i += 1
+int main()
+{
+ int n;
+  cout << "n=";
+  cin >> n;
+ int *a = new int[n + 1];
+ for (int i = 0; i <= n; i++)
+ a[i] = i;
+ for (int i = 2; i * i <= n; i++)
+ {
+ if (a[i])
+ for (int j = i*i; j <= n; j += i)
+ a[j] = 0;
+ }
+ for (int i = 2; i < n; i++)
+ {
+ if (a[i])
+ {
+ cout << a[i] << ' '; 
+ } 
+ } 
  
-a = set(a)
-a.remove(0)
-print(a)
+ cout << endl << endl;
+ delete[] a;
+ 
+ return 0;
+}
