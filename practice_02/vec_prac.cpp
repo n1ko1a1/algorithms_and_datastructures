@@ -52,6 +52,7 @@ int main()
     VectorSort<char>(vector_char);
     cout << "Отсортированный вектор: ";
     VectorOut<char>(vector_char);
+    setlocale(LC_ALL, "ru");
     
     return 0;
 }
