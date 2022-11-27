@@ -1,72 +1,32 @@
-#include <string>
-#include <vector>
 #include <iostream>
-#include <climits>
-#include <string>
+#include <vector>
+using namespace std;
 
-template<typename T>
-void PrintLenCapacityVal(std::vector<T> & vec)
+template <typename T>
+void sort(vector<T> & vec)
 {
-    std::cout << "len: " << vec.size() << "; capacity: " << vec.capacity() << std::endl;
-}
-template<typename T>
-void FillVec(std::vector<T> & vec, int n)
-{
-    for(int i = 0; i < n; i++)
-    {
-        vec.push_back(i);
-    }
-}
-template<typename T>
-void PrintVec(std::vector<T> & vec)
-{
-    int len = vec.size();
-    for(int i = 0; i < len; i++)  //3  0 1 2
-    {
-        std::cout << "value: " << vec[i] << std::endl;
-    }
-}
-template<typename T>
-int FindMax(std::vector<T> & vec)
-{
-    int max = INT_MIN;
-    int len = vec.size();
-    for(int i = 0; i < len; i++)
-    {
-        if (vec[i] > max)
-            max = vec[i];
-    }
-    return max;
-}
-
-template<typename T>
-void PrintLenCapacityValTemplate(T & vec)
-{
-    std::cout << "len: " << vec.size() << "; capacity: " << vec.capacity() << std::endl;
+	int sizevec = vec.size();
+	for (int i = 0; i <= sizevec; i++)
+	{
+		for (int j = 0; j < sizevec - i - 1; j++)
+		{
+			if (vec[j] > vec[j + 1])
+			{
+				int help = vec[j];
+				vec[j] = vec[j + 1];
+				vec[j + 1] = help;
+			}
+		}
+	}
 }
 
 int main()
 {
-    int i;
-    std::string s;
-    bool b;
-    char c;
-
-    std::cout << "sizeof int: " << sizeof(i) << std::endl;
-    std::cout << "sizeof string: " << sizeof(s) << std::endl;
-    std::cout << "sizeof bool: " << sizeof(b) << std::endl;
-    std::cout << "sizeof bool: " << sizeof(bool) << std::endl;
-    std::cout << "sizeof char: " << sizeof(c) << std::endl;
-    std::cout << "CHAR_BIT: " << CHAR_BIT << std::endl;
-
-    std::vector<bool> vec_b(1024);
-    std::cout << "sizeof vec_b: " << sizeof(vec_b) << std::endl;
-    std::cout << "size of 1024 bool: " << 1024*sizeof(bool) << std::endl;
-
-
-
-
-
-
-    return 0;
+	vector<int> newVector = { 5,3,123,54,7,78,1,8 };
+	sort(newVector);
+	int helpsize = newVector.size();
+	for (int k = 0; k < helpsize; k++)
+	{
+		cout << newVector[k] << " ";
+	}
 }
