@@ -1,33 +1,34 @@
 #include <iostream>
-void PrintBoolArray(bool* arr, int len)
+
+void GetPrimeValues(int* arr, int len)
 {
-    for( int i =0; i < len; i++)
-    {
-        std::cout << arr[i] << " ";
+    for (int i = 2; i < len + 1; i++) {
+        if (arr[i] != 0) {
+            std::cout << arr[i] << " ";
+            for (int j = i * i; j < len +1; j+= i)
+                arr[j] = 0;
+        }
     }
-    std::cout << std::endl;
 }
 
-void FillBoolArray(bool* arr, int len, bool value)
+
+void FillList(int * arr, int len)
 {
-    for( int i =0; i < len; i++)
-    {
-        arr[i] = value;
+    for( int i =0; i < len+1; i++) {
+        arr[i] = i;
     }
 }
-//inpit n
-//asdasd
+
+
 int main() {
-//0 1 2 3 4 5 6
-//- - + + - 5
-//p = 2 [2] = false
     int n;
+
+    std::cout << "enter a number: ";
     std::cin >> n;
-    bool* numbers = new bool[n];
-
-    FillBoolArray(numbers, n, true);
-    PrintBoolArray(numbers, n);
-
+    
+    int* numbers = new int[n + 1];
+    FillList(numbers, n);
+    GetPrimeValues(numbers, n);
 
     return 0;
 }
