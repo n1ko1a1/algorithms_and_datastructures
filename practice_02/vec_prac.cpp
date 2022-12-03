@@ -1,72 +1,63 @@
-#include <string>
 #include <vector>
 #include <iostream>
-#include <climits>
-#include <string>
 
 template<typename T>
-void PrintLenCapacityVal(std::vector<T> & vec)
-{
-    std::cout << "len: " << vec.size() << "; capacity: " << vec.capacity() << std::endl;
-}
-template<typename T>
-void FillVec(std::vector<T> & vec, int n)
-{
-    for(int i = 0; i < n; i++)
-    {
-        vec.push_back(i);
-    }
-}
-template<typename T>
-void PrintVec(std::vector<T> & vec)
-{
+void PrintVector(std::vector<T>& vec) {
     int len = vec.size();
-    for(int i = 0; i < len; i++)  //3  0 1 2
-    {
-        std::cout << "value: " << vec[i] << std::endl;
+
+    for (int i = 0; i < len; i++) {
+        std::cout << vec[i] << " ";
     }
-}
-template<typename T>
-int FindMax(std::vector<T> & vec)
-{
-    int max = INT_MIN;
-    int len = vec.size();
-    for(int i = 0; i < len; i++)
-    {
-        if (vec[i] > max)
-            max = vec[i];
-    }
-    return max;
+
+	std::cout << std::endl;
 }
 
+
 template<typename T>
-void PrintLenCapacityValTemplate(T & vec)
+int Partition(std::vector<T>& v, int start, int end) 
 {
-    std::cout << "len: " << vec.size() << "; capacity: " << vec.capacity() << std::endl;
+	int pivot = end;
+	int j = start;
+
+	for (int i = start; i < end; ++i) {
+		if (v[i] < v[pivot]) {
+			std::swap(v[i], v[j]);
+			++j;
+		}
+	}
+
+	std::swap(v[j], v[pivot]);
+	return j;
 }
+
+
+template<typename T>
+void QuickSort(std::vector<T>& v, int start, int end) {
+	if (start < end) {
+		int p = Partition<T>(v, start, end);
+		QuickSort<T>(v, start, p - 1);
+		QuickSort<T>(v, p + 1, end);
+	}
+}
+
 
 int main()
 {
-    int i;
-    std::string s;
-    bool b;
-    char c;
+    std::vector<int> nums = { 2, 3, 1, 6, 5, 12, 4 };
+	std::cout << "initial vector: ";
+	PrintVector<int>(nums);
+	QuickSort<int>(nums, 0, nums.size() - 1);
+	std::cout << "sorted vector: ";
+	PrintVector<int>(nums);
 
-    std::cout << "sizeof int: " << sizeof(i) << std::endl;
-    std::cout << "sizeof string: " << sizeof(s) << std::endl;
-    std::cout << "sizeof bool: " << sizeof(b) << std::endl;
-    std::cout << "sizeof bool: " << sizeof(bool) << std::endl;
-    std::cout << "sizeof char: " << sizeof(c) << std::endl;
-    std::cout << "CHAR_BIT: " << CHAR_BIT << std::endl;
+	std::cout << std::endl;
 
-    std::vector<bool> vec_b(1024);
-    std::cout << "sizeof vec_b: " << sizeof(vec_b) << std::endl;
-    std::cout << "size of 1024 bool: " << 1024*sizeof(bool) << std::endl;
-
-
-
-
-
+	std::vector<char> chars = { 'f', 'c', 'a', 'v', 'w', 'e', 'b'};
+	std::cout << "initial vector: ";
+	PrintVector<char>(chars);
+	QuickSort<char>(chars, 0, chars.size() - 1);
+	std::cout << "sorted vector: ";
+	PrintVector<char>(chars);
 
     return 0;
 }
