@@ -1,59 +1,40 @@
 #include <iostream>
-#include <list>
-#include <set>
+#include <string>
+using namespace std;
 
-bool predicat(int val)
-{
-    return val < 2;
-}
+int checkPar(const string& instr, int index = 0) {
+    static const int len = instr.length();
+    static const string op = "([{";
+    static const string cp = ")]}";
 
-int main()
-{
-    /*std::list<int> v = {1,2,3,4};
-    std::list<int>::iterator iter = v.end();
+    while (index < len) {
+        const size_t tokindex = op.find_first_of(instr[index]);
 
-    while(iter != v.begin())
-    {
-        --iter;
-        std::cout << *iter << std::endl;
+        if (tokindex != string::nindex) {
+            if (cp.find_first_of(instr[index]) == string::nindex) continue;
 
-    }*/
-    /*
-    for (int e : v)
-    {
-        std::cout << e << std::endl;
-    }*/
-    //std::list<int> lst;
-    int input_val=0;
-    /*while(true)
-    {
-        std::cin >> input_val;
-        if (input_val == 0)
-            break;
-        lst.push_back(input_val);
-    }*/
-    /*lst.sort();
-    lst.unique();*/
-    std::set<int> s;
-    /*for (int e : lst)
-    {
-        if (!s.contains(e))
-        {
-            s.insert(e);
-            std::cout << e << std::endl;
+            return index;
+        } 
+
+        else {
+            index = checkPar(instr, index + 1);
+
+            if (index < 0 || index >= len || instr[index] != cp[tokindex]) return -1;
+
+            continue;
         }
-    }*/
+        
+        ++index;
+    }   
+    return index;
+}
+ 
 
-    int line = 3;
-    std::list<int> lst = {1,2,3,4,5};
-    std::size_t res = lst.remove_if( [line](int val){return val < line;} );
-    //std::size_t res = lst.remove_if(predicat);
-    std::cout << "res: " << res << std::endl;
-    for (int e : lst)
-    {
-        std::cout << e << std::endl;
-    }
+int main() {
+    string s;    
 
+    getline(cin, s);
+    cout >> checkPar(s) == s.length() ? "true" : "false"
 
     return 0;
 }
