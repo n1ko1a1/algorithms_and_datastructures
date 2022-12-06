@@ -1,7 +1,7 @@
 #include <iostream>
 void PrintBoolArray(bool* arr, int len)
 {
-    std::cout << "Простые числа, меньшие или равные " << len << ":\n";
+    std::cout << "Простые числа, меньшие или равные: " << len << "\n";
     for (size_t k = 2; k <= len; k++)
     {
         if (arr[k] == 1)
@@ -36,15 +36,8 @@ int main() {
     int n = 0;
     bool good = true;
 
-    do {
-        std::cout << "Введите целое число, которое не будут превосходить простые числа: ";
-        std::cin >> n;
-        if (!(good = std::cin.good())) {
-            std::cout << "Ошибка ввода. Попробуйте еще раз\n" << std::endl;
-        }
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    } while (!good);
+    std::cout << "Введите целое число, которое не будут превосходить простые числа: ";
+    std::cin >> n;
 
     bool* numbers = new bool[n];
 
