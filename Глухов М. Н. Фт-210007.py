@@ -1,21 +1,38 @@
+#include "stdafx.h"
 #include <iostream>
 using namespace std;
-int main()
+ 
+void Eratosthenes(bool massiv[], int N)
 {
-  int i;
-  cout << "i=";
-  cin >> i;
-  int *a = new int[i + 1];
-  for (int i = 0; i < i + 1; i++)
-    a[i] = i;
-  for (int p = 2; p < i + 1; p++)
-  {
-    if (a[p] != 0)
-    {
-      cout << a[p] << endl;
-      for (int j = p*p; j < i + 1; j += p)
-        a[j] = 0;
-    }
-  }
-  cin.get(); cin.get();
+int i, j;
+for (j=2; j<=N; j++) massiv[j]=true;
+j=2;
+while (j*j<=N)
+{
+i=j*j;
+if (massiv[j])
+while (i<=N)
+{
+massiv[i]=false;
+i=i+j;
+}
+j=j+1;
+}
+cout<<"Список простых чисел: ";
+for (j=2; j<=N; j++)
+{
+if (massiv[j]==true) cout<<" "<<j;
+}
+}
+ 
+void main()
+{
+setlocale(LC_ALL,"Rus");
+int N;
+cout<<"Введите размерность массива"<<endl;
+cin>>N;
+bool *massiv=new bool[N];
+Eratosthenes(massiv, N);
+cout<<endl;
+system("pause");
 }
