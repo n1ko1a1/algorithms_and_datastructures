@@ -1,78 +1,97 @@
 #include <iostream>
 #include <string>
-#include <cmath>
-#include <ctime>
-
-bool IsAllowedChar(char c)
-{
-    if( ( c >= 65 && c <= 90 ) ||/*a-z*/
-        ( c >= 97 && c <= 122) ||/*A-Z*/
-        ( c >= 48 && c <= 57 ) ) /*0-9*/
-        return true;
-    return false;
-}
-
-/*
-bool IsLatinWord(std::string word)
-{
-    for (char c : word )
-    {
-        if( !IsLatinChar(c) )
-            return false;
-    }
-    return true;
-}*/
-
-
+#include <iterator>
+using namespace std;
 int main()
 {
-    /*std::string word_1;
-    std::string word_2;
-    std::cin >> word_1 >> word_2;
+    setlocale(LC_ALL, "Russian");
+    int choice;
+    string stroka, answer;
+    cout << "Что вы хотите сделать?" << endl << "1 - Шифровать" << endl << "2 - Дешифровать" << endl << "Введите число!" << endl;
+    cin >> choice;
+    cin.ignore();
+   
+    
 
-    std::cout << word_1 + word_2 << std::endl;
-
-    std::cout << word_1 << " " << &word_1 << " " << word_1.length() << std::endl;
-    word_1 += "a";
-    std::cout << word_1 << " " << &word_1 << " " << word_1.length() << std::endl;
-
-    for (char & c : word_1)
+    if (choice == 1)
     {
-        char z = 'z';
-        c = z;
-        std::cout << c << std::endl;
-    }
-    std::cout << word_1 << " " << &word_1 << " " << word_1.length() << std::endl;*/
+        cout << "Введите строку для  кодировки на латинице" << endl;
+        getline(cin, stroka);
+        
 
-    /*
-    char a = 'a';
-    std::cout << static_cast<int>(a) << std::endl;*/
-    /*
-    std::string word;
-    //std::cin >> word;
-    getline(std::cin, word);
-    std::cout << IsLatinWord(word) << std::endl;*/
+        string encryption = stroka;
 
-    int len;
-    std::cin >> len;
-    std::string allowed_char = "a-Z,0-9";
-    char c = 97;
-    //std::cout << ('b' < 'z') << std::endl;
-    //48 - 122
-    std::srand(time(0));
-    std::string password;
-    int cnt = 0;
-    while (cnt < len)
-    {
-        char candidate = 48 + rand()%74;
-        if (IsAllowedChar(candidate))
+        int sdvig;
+        cout << "Введите ключ от 0 до 25" << endl;
+        cin >> sdvig;
+        cin.ignore();
+
+        for (int i = 0; i < stroka.size(); i++)
         {
-            password +=candidate;
-            cnt++;
+            if (stroka[i] == 32)
+            {
+                continue;
+            }
+            else
+            {
+                if ((stroka[i] + sdvig) > 122)
+                {
+                    int help = (stroka[i] + sdvig) - 122;
+                    encryption[i] = 96 + help;
+                }
+                else if (stroka[i] + sdvig > 90 and stroka[i] <= 96)
+                {
+                    int help = (stroka[i] + sdvig) - 90;
+                    encryption[i] = 64 + help;
+                }
+                else
+                {
+                    encryption[i] += sdvig;
+                }
+
+            }
         }
+        cout << "Зашифрованный текст" << endl << encryption;
     }
-    std::cout << password << std::endl;
+    else if (choice == 2)
+    {
+        cout << "Введите строку для  кодировки на латинице" << endl;
+        getline(cin, stroka);
 
+        int sdvig;
+        cout << "Введите ключ от 0 до 25" << endl;
+        cin >> sdvig;
+        cin.ignore();
 
-    return 0;
+        string decryption = stroka;
+        for (int i = 0; i < stroka.size();i++)
+        {
+            if (stroka[i] == 32)
+            {
+                continue;
+            }
+            else
+            {
+                if ((stroka[i] - sdvig) < 97 and (stroka[i] - sdvig) > 90)
+                {
+                    int help = (stroka[i] - sdvig) + 26;
+                    decryption[i] = help;
+                }
+                else if ((stroka[i] - sdvig) < 65)
+                {
+                    int help = (stroka[i] - sdvig) + 26;
+                    decryption[i] = help;
+                }
+                else
+                {
+                    decryption[i] = stroka[i] - sdvig;
+                }
+            }
+        }
+        cout << "Дешифрованный текст" << endl << decryption;
+    }
+    else
+    {
+        cout << "Вы ввели что-то неверно!" << endl << "Введите число от 1 до 2";
+    }
 }
