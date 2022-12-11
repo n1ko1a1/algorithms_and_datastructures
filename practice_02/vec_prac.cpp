@@ -1,72 +1,44 @@
-#include <string>
-#include <vector>
 #include <iostream>
-#include <climits>
-#include <string>
 
-template<typename T>
-void PrintLenCapacityVal(std::vector<T> & vec)
+template < typename T >
+void my_swap ( T & first , T & second ) 
 {
-    std::cout << "len: " << vec.size() << "; capacity: " << vec.capacity() << std::endl;
-}
-template<typename T>
-void FillVec(std::vector<T> & vec, int n)
-{
-    for(int i = 0; i < n; i++)
-    {
-        vec.push_back(i);
-    }
-}
-template<typename T>
-void PrintVec(std::vector<T> & vec)
-{
-    int len = vec.size();
-    for(int i = 0; i < len; i++)  //3  0 1 2
-    {
-        std::cout << "value: " << vec[i] << std::endl;
-    }
-}
-template<typename T>
-int FindMax(std::vector<T> & vec)
-{
-    int max = INT_MIN;
-    int len = vec.size();
-    for(int i = 0; i < len; i++)
-    {
-        if (vec[i] > max)
-            max = vec[i];
-    }
-    return max;
+    T temp(first) ; 
+    first = second ;
+    second = temp ;
 }
 
-template<typename T>
-void PrintLenCapacityValTemplate(T & vec)
+template < class ElementType > 
+void bubbleSort(ElementType * arr, size_t arrSize)
 {
-    std::cout << "len: " << vec.size() << "; capacity: " << vec.capacity() << std::endl;
+    for(size_t i = 0; i < arrSize - 1; ++i) 
+        for(size_t j = 0; j < arrSize - 1; ++j)
+            if (arr[j + 1] < arr[j]) 
+                my_swap ( arr[j] , arr[j+1] ) ;
 }
 
-int main()
+template < typename ElementType >
+void out_array ( const ElementType * arr , size_t arrSize )
 {
-    int i;
-    std::string s;
-    bool b;
-    char c;
-
-    std::cout << "sizeof int: " << sizeof(i) << std::endl;
-    std::cout << "sizeof string: " << sizeof(s) << std::endl;
-    std::cout << "sizeof bool: " << sizeof(b) << std::endl;
-    std::cout << "sizeof bool: " << sizeof(bool) << std::endl;
-    std::cout << "sizeof char: " << sizeof(c) << std::endl;
-    std::cout << "CHAR_BIT: " << CHAR_BIT << std::endl;
-
-    std::vector<bool> vec_b(1024);
-    std::cout << "sizeof vec_b: " << sizeof(vec_b) << std::endl;
-    std::cout << "size of 1024 bool: " << 1024*sizeof(bool) << std::endl;
+    for ( size_t i = 0 ; i < arrSize ; ++i )
+       std::cout << arr[i] << ' ' ;
+    std::cout << std::endl ;
+}
 
 
+int main ()
+{
+    const size_t n = 5 ;
+    int arr1 [ n ] = { 11 , 6 , 8, 4 , 5 } ;
+    double arr2 [ n ] = { 8.39 , 4.76 , 37.0 , 49.0 , 6.0 } ;
+    std::cout << "Исходные вектора:\n" ;
+    out_array ( arr1 , n ) ;
+    out_array ( arr2 , n ) ;
 
+    bubbleSort ( arr1 , n ) ;
+    bubbleSort ( arr2 , n ) ;
 
-
-
-    return 0;
+    std::cout << "Отсортированные вектора:\n" ;
+    out_array ( arr1 , n ) ;
+    out_array ( arr2 , n ) ;
 }
