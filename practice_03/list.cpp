@@ -1,59 +1,51 @@
 #include <iostream>
-#include <list>
-#include <set>
+#include <string>
+#include <stack>
 
-bool predicat(int val)
-{
-    return val < 2;
+
+bool Check(std::string s) {
+	std::stack<char> openBrackets;
+	for (int i = 0; i < s.length(); i++) {
+		switch (s[i]) {
+		case '(':
+		case '[':
+		case '{':
+			openBrackets.push(s[i]);
+			break;
+		case ')':
+			if (openBrackets.empty()) return false;
+			if (openBrackets.top() != '(') {
+				return false;
+			}
+			else {
+				openBrackets.pop();
+			}
+			break;
+		case ']':
+			if (openBrackets.empty()) return false;
+			if (openBrackets.top() != '[') {
+				return false;
+			}
+			else {
+				openBrackets.pop();
+			}
+			break;
+		case '}':
+			if (openBrackets.empty()) return false;
+			if (openBrackets.top() != '{') {
+				return false;
+			}
+			else {
+				openBrackets.pop();
+			}
+			break;
+		}
+	}
+	return openBrackets.empty();
 }
 
 int main()
 {
-    /*std::list<int> v = {1,2,3,4};
-    std::list<int>::iterator iter = v.end();
-
-    while(iter != v.begin())
-    {
-        --iter;
-        std::cout << *iter << std::endl;
-
-    }*/
-    /*
-    for (int e : v)
-    {
-        std::cout << e << std::endl;
-    }*/
-    //std::list<int> lst;
-    int input_val=0;
-    /*while(true)
-    {
-        std::cin >> input_val;
-        if (input_val == 0)
-            break;
-        lst.push_back(input_val);
-    }*/
-    /*lst.sort();
-    lst.unique();*/
-    std::set<int> s;
-    /*for (int e : lst)
-    {
-        if (!s.contains(e))
-        {
-            s.insert(e);
-            std::cout << e << std::endl;
-        }
-    }*/
-
-    int line = 3;
-    std::list<int> lst = {1,2,3,4,5};
-    std::size_t res = lst.remove_if( [line](int val){return val < line;} );
-    //std::size_t res = lst.remove_if(predicat);
-    std::cout << "res: " << res << std::endl;
-    for (int e : lst)
-    {
-        std::cout << e << std::endl;
-    }
-
-
-    return 0;
+	std::string brackets = "[([({})])]";
+	std::cout << Check(brackets);
 }
