@@ -1,59 +1,37 @@
 #include <iostream>
-#include <list>
-#include <set>
-
-bool predicat(int val)
+#include <string>
+using namespace std;
+int checkPar(const string & instr, int pos = 0)
 {
-    return val < 2;
+    static const int stroka = instr.length();
+    static const string op = "([{";
+    static const string cp = ")]}";
+    while (pos < stroka)
+    {
+        const size_t tokpos = op.find_first_of(instr[pos]);
+        if (tokpos != string::npos)
+        {
+            pos = checkPar(instr, pos + 1);
+            if (pos < 0 || pos >= stroka || instr[pos] != cp[tokpos]) return -1;
+        }
+        else
+            if (cp.find_first_of(instr[pos]) != string::npos) return pos;       
+        ++pos;
+    }   
+    return pos;
 }
 
 int main()
 {
-    /*std::list<int> v = {1,2,3,4};
-    std::list<int>::iterator iter = v.end();
-
-    while(iter != v.begin())
+    string vivod;    
+    getline(cin, vivod);
+    if (checkPar(vivod) == vivod.length())
     {
-        --iter;
-        std::cout << *iter << std::endl;
-
-    }*/
-    /*
-    for (int e : v)
-    {
-        std::cout << e << std::endl;
-    }*/
-    //std::list<int> lst;
-    int input_val=0;
-    /*while(true)
-    {
-        std::cin >> input_val;
-        if (input_val == 0)
-            break;
-        lst.push_back(input_val);
-    }*/
-    /*lst.sort();
-    lst.unique();*/
-    std::set<int> s;
-    /*for (int e : lst)
-    {
-        if (!s.contains(e))
-        {
-            s.insert(e);
-            std::cout << e << std::endl;
-        }
-    }*/
-
-    int line = 3;
-    std::list<int> lst = {1,2,3,4,5};
-    std::size_t res = lst.remove_if( [line](int val){return val < line;} );
-    //std::size_t res = lst.remove_if(predicat);
-    std::cout << "res: " << res << std::endl;
-    for (int e : lst)
-    {
-        std::cout << e << std::endl;
+        cout << "True";
     }
-
-
+    else
+    {
+        cout << "False";
+    }   
     return 0;
 }
