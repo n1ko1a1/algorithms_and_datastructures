@@ -12,14 +12,14 @@ int main()
 	setlocale(LC_ALL, "Russian");
     vector<int> vec = {1, 9, 6, 2, 0, 4, 10, 18, 5};
     vector<int>::iterator index;
-    cout << "Âåêòîð äî ñîðòèðîâêè: ";
+    cout << "Ð’ÐµÐºÑ‚Ð¾Ñ€ Ð´Ð¾ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ¸: ";
     for (index = vec.begin(); index != vec.end(); index++)
     {
         cout << *index << " ";
     }
     sort(vec.begin(), vec.end(), comparisonFunction);
 
-    cout << "\nÎòñîðòèðîâàííûé âåêòîð: ";
+    cout << "\nÐ’ÐµÐºÑ‚Ð¾Ñ€ Ð¿Ð¾ÑÐ»Ðµ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ¸: ";
     for (index = vec.begin(); index != vec.end(); index++)
     {
         cout << *index << " ";
