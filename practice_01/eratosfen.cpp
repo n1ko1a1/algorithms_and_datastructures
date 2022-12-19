@@ -1,33 +1,39 @@
 #include <iostream>
-void PrintBoolArray(bool* arr, int len)
+#include <vector>
+using namespace std;
+
+void print_vector_bool(const vector<bool> &A)
 {
-    for( int i =0; i < len; i++)
-    {
-        std::cout << arr[i] << " ";
+    for (int i = 0; i < A.size(); i++) {
+        cout << A[i] << '\t';
     }
-    std::cout << std::endl;
+    cout << '\n';
 }
 
-void FillBoolArray(bool* arr, int len, bool value)
+int main()
 {
-    for( int i =0; i < len; i++)
-    {
-        arr[i] = value;
+    int N;
+    cout<<"Введите N: ";
+    cin>> N;
+
+    vector<bool> is_simple(N+1);
+    for (int i = 0; i < N; i++) {
+        is_simple[i] = true;
     }
-}
-//inpit n
-//asdasd
-int main() {
-//0 1 2 3 4 5 6
-//- - + + - 5
-//p = 2 [2] = false
-    int n;
-    std::cin >> n;
-    bool* numbers = new bool[n];
 
-    FillBoolArray(numbers, n, true);
-    PrintBoolArray(numbers, n);
+    for (int x = 2; x*x <= N; x++) {
+        if (is_simple[x])
+            for (int y = x*x; y <= N; y += x)
+            {
+                is_simple[y] = false;
+            }
+    }
 
-
+    for (int x = 2; x <= N; x++) {
+        if (is_simple[x]) {
+            cout << x << '\t';
+        }
+    }
+    cout << '\n';
     return 0;
 }
