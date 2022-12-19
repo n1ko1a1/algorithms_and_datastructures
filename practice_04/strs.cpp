@@ -1,78 +1,79 @@
 #include <iostream>
-#include <string>
-#include <cmath>
-#include <ctime>
+#include <stdio.h>
+#include <cstring>
 
-bool IsAllowedChar(char c)
-{
-    if( ( c >= 65 && c <= 90 ) ||/*a-z*/
-        ( c >= 97 && c <= 122) ||/*A-Z*/
-        ( c >= 48 && c <= 57 ) ) /*0-9*/
-        return true;
-    return false;
-}
+using namespace std;
 
-/*
-bool IsLatinWord(std::string word)
+char Substitute (char letter, int key, char vibor)
 {
-    for (char c : word )
+    int new_ind;
+    char x;
+    const int n=26;
+    char Alfavit[n]={'a','b','c','d','e','f','g','h','i','j','k','l',
+    'm','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+    for (int i=0; i<n; i++)
     {
-        if( !IsLatinChar(c) )
-            return false;
+        if (letter==Alfavit[i])
+        {
+            if (vibor=='e')
+            {
+                new_ind=i+key;
+                while (new_ind>(n-1))
+               {
+                  new_ind=new_ind-n;
+               }
+            }
+            if (vibor=='d')
+            {
+                new_ind=i-key;
+                while (new_ind<0)
+               {
+                  new_ind=new_ind+n;
+               }
+            }
+            x=Alfavit[new_ind];         
+        }
     }
-    return true;
-}*/
-
+    return x;
+}
 
 int main()
 {
-    /*std::string word_1;
-    std::string word_2;
-    std::cin >> word_1 >> word_2;
-
-    std::cout << word_1 + word_2 << std::endl;
-
-    std::cout << word_1 << " " << &word_1 << " " << word_1.length() << std::endl;
-    word_1 += "a";
-    std::cout << word_1 << " " << &word_1 << " " << word_1.length() << std::endl;
-
-    for (char & c : word_1)
+	setlocale(LC_ALL, "Russian");
+    const int N=256;
+    char Str[N];
+    cout<<"Введите текст:"<<endl;
+    gets(Str);
+    int length=strlen(Str);
+    char vibor;
+    cout<<"Если вы хотите зашифровать текст, нажмите e"<<
+    endl<<"Если вы хотите расшифровать текст, нажмите d"<<endl;
+    cin>>vibor;
+    if (vibor!='d' && vibor!='e' )
     {
-        char z = 'z';
-        c = z;
-        std::cout << c << std::endl;
+    	cout<<"Вы неправильно ввели данные"<<endl;
+		return 0;
     }
-    std::cout << word_1 << " " << &word_1 << " " << word_1.length() << std::endl;*/
-
-    /*
-    char a = 'a';
-    std::cout << static_cast<int>(a) << std::endl;*/
-    /*
-    std::string word;
-    //std::cin >> word;
-    getline(std::cin, word);
-    std::cout << IsLatinWord(word) << std::endl;*/
-
-    int len;
-    std::cin >> len;
-    std::string allowed_char = "a-Z,0-9";
-    char c = 97;
-    //std::cout << ('b' < 'z') << std::endl;
-    //48 - 122
-    std::srand(time(0));
-    std::string password;
-    int cnt = 0;
-    while (cnt < len)
+    int key;
+    cout<<"Введите шаг сдвига(от 1 до 26): ";
+    cin>>key;
+    if (key < 1 || key > 26 )
     {
-        char candidate = 48 + rand()%74;
-        if (IsAllowedChar(candidate))
+    	cout<<"Вы неправильно ввели шаг сдвига"<<endl;
+		return 0;
+    }
+    for (int i=0; i<length; i++)
+    {
+        if (Str[i]==' ')
         {
-            password +=candidate;
-            cnt++;
+            Str[i]=Str[i];
+        }
+        else
+        {
+            Str[i]=Substitute (Str[i], key,vibor);
         }
     }
-    std::cout << password << std::endl;
-
-
+    cout<<"Новый текст: "<<endl<<Str;
     return 0;
+    
 }
