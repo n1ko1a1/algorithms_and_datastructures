@@ -1,78 +1,81 @@
 #include <iostream>
 #include <string>
-#include <cmath>
-#include <ctime>
+#include <vector>
 
-bool IsAllowedChar(char c)
-{
-    if( ( c >= 65 && c <= 90 ) ||/*a-z*/
-        ( c >= 97 && c <= 122) ||/*A-Z*/
-        ( c >= 48 && c <= 57 ) ) /*0-9*/
-        return true;
-    return false;
+std::vector <char> editable_chars_list;
+
+void prepareEditableCharsList() {
+    for (int i = 65; i <= 90; ++i) {
+        editable_chars_list.push_back((char) i);
+    }
+    for (int i = 97; i <= 122; ++i) {
+        editable_chars_list.push_back((char) i);
+    }
 }
 
-/*
-bool IsLatinWord(std::string word)
-{
-    for (char c : word )
-    {
-        if( !IsLatinChar(c) )
-            return false;
+int getSymbolIndex (char symbol){
+    for (int i = 0; i < editable_chars_list.size(); ++i) {
+        if (symbol == editable_chars_list[i]) {
+            return i;
+        }
     }
-    return true;
-}*/
-
+    return -1;
+}
 
 int main()
 {
-    /*std::string word_1;
-    std::string word_2;
-    std::cin >> word_1 >> word_2;
+    prepareEditableCharsList();
 
-    std::cout << word_1 + word_2 << std::endl;
+    char work_mode;
+    std::string input_phrase;
+    std::string output_phrase;
+    int offset;
 
-    std::cout << word_1 << " " << &word_1 << " " << word_1.length() << std::endl;
-    word_1 += "a";
-    std::cout << word_1 << " " << &word_1 << " " << word_1.length() << std::endl;
+    std::cout << "Hello dear user! Caesar shipper program at your service." << std::endl
+              << "Please, select work mode: " << std::endl
+              << "1) Encryption (Enter a 'e' to select them)" << std::endl
+              << "2) Decryption (Enter a 'd' to select them)" << std::endl
+              << "Type your choice here: ";
+    std::cin >> work_mode;
 
-    for (char & c : word_1)
-    {
-        char z = 'z';
-        c = z;
-        std::cout << c << std::endl;
+    switch (work_mode) {
+        case 'e':
+            std::cout << "Enter your text for encryption: ";
+            //std::getline(std::cin, input_phrase);
+            std::cin >> input_phrase;
+            std::cout << "Enter your offset (integer): ";
+            std::cin >> offset;
+
+            for (char i : input_phrase) {
+                if (getSymbolIndex(i) != -1) {
+                    output_phrase.push_back(editable_chars_list[(getSymbolIndex(i) + offset) % editable_chars_list.size()]);
+                } else {
+                    output_phrase.push_back(i);
+                }
+            }
+
+            std::cout <<  "Your encrypted text string: " << output_phrase;
+            break;
+        case 'd':
+            std::cout << "Enter your text for decryption: ";
+            //std::getline(std::cin, input_phrase);
+            std::cin >> input_phrase;
+            std::cout << "Enter your offset (integer): ";
+            std::cin >> offset;
+
+            for (char i : input_phrase) {
+                if (getSymbolIndex(i) != -1) {
+                    output_phrase.push_back(editable_chars_list[(getSymbolIndex(i) - offset) % editable_chars_list.size()]);
+                } else {
+                    output_phrase.push_back(i);
+                }
+            }
+
+            std::cout <<  "Your decrypted text string: " << output_phrase;
+            break;
+        default:
+            std::cout << "Error. You have selected a non-existent program mode.";
     }
-    std::cout << word_1 << " " << &word_1 << " " << word_1.length() << std::endl;*/
-
-    /*
-    char a = 'a';
-    std::cout << static_cast<int>(a) << std::endl;*/
-    /*
-    std::string word;
-    //std::cin >> word;
-    getline(std::cin, word);
-    std::cout << IsLatinWord(word) << std::endl;*/
-
-    int len;
-    std::cin >> len;
-    std::string allowed_char = "a-Z,0-9";
-    char c = 97;
-    //std::cout << ('b' < 'z') << std::endl;
-    //48 - 122
-    std::srand(time(0));
-    std::string password;
-    int cnt = 0;
-    while (cnt < len)
-    {
-        char candidate = 48 + rand()%74;
-        if (IsAllowedChar(candidate))
-        {
-            password +=candidate;
-            cnt++;
-        }
-    }
-    std::cout << password << std::endl;
-
 
     return 0;
 }
