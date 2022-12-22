@@ -1,78 +1,47 @@
 #include <iostream>
 #include <string>
-#include <cmath>
-#include <ctime>
 
-bool IsAllowedChar(char c)
-{
-    if( ( c >= 65 && c <= 90 ) ||/*a-z*/
-        ( c >= 97 && c <= 122) ||/*A-Z*/
-        ( c >= 48 && c <= 57 ) ) /*0-9*/
-        return true;
-    return false;
+char Incode(char stringSymbol, int key) {
+	return char (int(stringSymbol) + key);
 }
 
-/*
-bool IsLatinWord(std::string word)
-{
-    for (char c : word )
-    {
-        if( !IsLatinChar(c) )
-            return false;
-    }
-    return true;
-}*/
+char Decode(char stringSymbol, int key) {
+	return char(int(stringSymbol) - key);
+}
 
+int main() {
+	std::string input;
+	char mode;
+	int key;
 
-int main()
-{
-    /*std::string word_1;
-    std::string word_2;
-    std::cin >> word_1 >> word_2;
+	std::cout << "Enter \"e\" to incode/ \"d\" to decode" << std::endl;
 
-    std::cout << word_1 + word_2 << std::endl;
-
-    std::cout << word_1 << " " << &word_1 << " " << word_1.length() << std::endl;
-    word_1 += "a";
-    std::cout << word_1 << " " << &word_1 << " " << word_1.length() << std::endl;
-
-    for (char & c : word_1)
-    {
-        char z = 'z';
-        c = z;
-        std::cout << c << std::endl;
-    }
-    std::cout << word_1 << " " << &word_1 << " " << word_1.length() << std::endl;*/
-
-    /*
-    char a = 'a';
-    std::cout << static_cast<int>(a) << std::endl;*/
-    /*
-    std::string word;
-    //std::cin >> word;
-    getline(std::cin, word);
-    std::cout << IsLatinWord(word) << std::endl;*/
-
-    int len;
-    std::cin >> len;
-    std::string allowed_char = "a-Z,0-9";
-    char c = 97;
-    //std::cout << ('b' < 'z') << std::endl;
-    //48 - 122
-    std::srand(time(0));
-    std::string password;
-    int cnt = 0;
-    while (cnt < len)
-    {
-        char candidate = 48 + rand()%74;
-        if (IsAllowedChar(candidate))
-        {
-            password +=candidate;
-            cnt++;
-        }
-    }
-    std::cout << password << std::endl;
-
-
-    return 0;
+	std::cin >> mode;
+	switch (mode)
+	{
+	case ('e'):
+		std::cout << "Enter the string to incode: " << std::endl;
+		std::cin >> input;
+		std::cout << "Enter the incoding key: " << std::endl;
+		std::cin >> key;
+		for (int i = 0; i < input.length(); i++) {
+			input[i] = Incode(input[i], key);
+		}
+		std::cout << input;
+		break;
+	case('d'):
+		std::cout << "Enter the string to decode: " << std::endl;
+		std::cin >> input;
+		std::cout << "Enter the decoding key: " << std::endl;
+		std::cin >> key;
+		for (int i = 0; i < input.length(); i++) {
+			input[i] = Decode(input[i], key);
+		}
+		std::cout << input;
+		break;
+	default:
+		std::cout << "Wrong option!" << std::endl;
+		break;
+	}
+	
 }
