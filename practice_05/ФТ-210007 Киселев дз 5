@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+#include <unordered_map>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "Rus");
+    unordered_map<string, int> count;
+    string s;
+    int slovo;
+    cout << "Введите строку на английском языке: " << endl;
+    getline(cin, s);
+    int dlina = s.length();
+    int i = 0;
+    string word = "";
+    for (i; i < dlina; i++)
+    {
+        if (s[i] != ' ')
+        {
+            word += s[i];
+        }
+        else 
+        {
+            count[word]++;
+            word = "";
+        }
+    }
+    count[word] ++;
+
+    string max_slovo = "";
+    int max = 0;
+    for (auto current = count.begin(); current != count.end(); ++current) 
+    {
+        string word = (*current).first;
+        int count = (*current).second;
+        if (count > max) {
+            max_slovo = word;
+            max = count;
+        }
+    }
+    cout << max_slovo << " " << max << endl;
+}
