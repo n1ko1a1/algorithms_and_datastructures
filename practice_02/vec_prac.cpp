@@ -1,72 +1,58 @@
-#include <string>
-#include <vector>
 #include <iostream>
-#include <climits>
-#include <string>
+#include <vector>
+using namespace std;
 
+// Вывод вектора
 template<typename T>
-void PrintLenCapacityVal(std::vector<T> & vec)
+void VectorOut(vector<T>& v) 
 {
-    std::cout << "len: " << vec.size() << "; capacity: " << vec.capacity() << std::endl;
-}
-template<typename T>
-void FillVec(std::vector<T> & vec, int n)
-{
-    for(int i = 0; i < n; i++)
+    int vector_len = v.size();
+    for (int i = 0; i < vector_len; i++)
     {
-        vec.push_back(i);
+        cout << v[i] << " ";
     }
-}
-template<typename T>
-void PrintVec(std::vector<T> & vec)
-{
-    int len = vec.size();
-    for(int i = 0; i < len; i++)  //3  0 1 2
-    {
-        std::cout << "value: " << vec[i] << std::endl;
-    }
-}
-template<typename T>
-int FindMax(std::vector<T> & vec)
-{
-    int max = INT_MIN;
-    int len = vec.size();
-    for(int i = 0; i < len; i++)
-    {
-        if (vec[i] > max)
-            max = vec[i];
-    }
-    return max;
+    
+    cout << endl;
 }
 
+// Сортировка вектора
 template<typename T>
-void PrintLenCapacityValTemplate(T & vec)
+void VectorSort(vector<T>& v) 
 {
-    std::cout << "len: " << vec.size() << "; capacity: " << vec.capacity() << std::endl;
+    int end = v.size();
+    for (int i = 0; i < end; i++) 
+    {
+        for (int j = 0; j < end-i-1; j++)
+        {
+            if (v[j] > v[j+1]) 
+            {
+                swap(v[j], v[j+1]);
+            }
+        }
+    }
+    cout << endl;
 }
+
 
 int main()
 {
-    int i;
-    std::string s;
-    bool b;
-    char c;
-
-    std::cout << "sizeof int: " << sizeof(i) << std::endl;
-    std::cout << "sizeof string: " << sizeof(s) << std::endl;
-    std::cout << "sizeof bool: " << sizeof(b) << std::endl;
-    std::cout << "sizeof bool: " << sizeof(bool) << std::endl;
-    std::cout << "sizeof char: " << sizeof(c) << std::endl;
-    std::cout << "CHAR_BIT: " << CHAR_BIT << std::endl;
-
-    std::vector<bool> vec_b(1024);
-    std::cout << "sizeof vec_b: " << sizeof(vec_b) << std::endl;
-    std::cout << "size of 1024 bool: " << 1024*sizeof(bool) << std::endl;
-
-
-
-
-
-
+    vector<int> vector_int = {2, 1, 3};
+    vector<char> vector_char = {'b', 'c', 'a', 'd'};
+    
+    cout << "Вектор: ";
+    VectorOut<int>(vector_int);
+    VectorSort<int>(vector_int);
+    cout << "Отсортированный вектор: ";
+    VectorOut<int>(vector_int);
+    
+    cout << endl;
+    
+    cout << "Вектор: ";
+    VectorOut<char>(vector_char);
+    VectorSort<char>(vector_char);
+    cout << "Отсортированный вектор: ";
+    VectorOut<char>(vector_char);
+    setlocale(LC_ALL, "ru");
+    
     return 0;
 }
