@@ -1,0 +1,66 @@
+#include <iostream>
+
+char encrypt(char stringSymbol, int key)
+{     
+    return char ( int(stringSymbol) + key );
+
+}
+
+char decrypt(char stringSymbol, int key){     
+    return char ( int(stringSymbol) - key );
+}
+
+int main() 
+
+{
+
+    std::string inputString;                  
+    std::string outputString;                  
+    int key, mode;                            
+
+    std::cout << "Выберете, что необходимо сделать:" << std::endl
+    << "1. Зашифровать сообщение" << std::endl
+    << "2. Расшифровать сообщение" << std::endl
+    << "Введите цифру: ";
+    std::cin >> mode;                        
+
+    switch (mode) 
+
+    {    
+
+        case 1:
+            std::cout << std::endl << "Необходимо ввести сообщение, которое надо зашифровать" << std::endl
+            << "Необходимо ввести шаг сдвига" << std::endl
+            << "" << std::endl << "Введите через пробел сообщение и шаг: ";
+            std::cin >> inputString >> key;   
+
+            for (int i = 0; i < inputString.length(); i++){ 
+                outputString += encrypt(inputString[i], key);
+
+            }
+
+            std::cout << "Зашифрованное сообщение:  " << outputString << std::endl 
+            << " Шаг сдвига: " << key << std::endl;
+
+            break;
+        case 2:
+            std::cout << std::endl << "Необходимо ввести сообщение, которое надо расшифровать" << std::endl
+                      << "Необходимо ввести шаг сдвига" << std::endl
+                      << "" << std::endl
+                      << "Введите через пробел сообщение и шаг: ";
+            std::cin >> inputString >> key;     
+
+            for (int i = 0; i < inputString.length(); i++){ 
+                outputString += decrypt(inputString[i], key);
+
+            }
+
+            std::cout << "Расшифрованное сообщение: " << outputString << std::endl; // Вывод дешифрованной строки
+            break;
+        default: 
+            std::cout << "Ошибка ввода!";
+            break;
+    }
+
+    return 0;
+}
