@@ -1,0 +1,31 @@
+#include <cmath>
+#include <iostream>
+#include <vector>
+using namespace std;
+struct coord
+{
+    double x;
+    double y;
+};
+double corner(coord& p)
+{
+    auto ugol = atan(p.y/p.x);
+    return ugol;
+}
+void sortpoints(vector<coord>& points)
+{
+    sort(points.begin(), points.end(), [](coord lhs, coord rhs) {return corner(lhs) < corner (rhs);});
+}
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    vector<coord> points = { {1, 0}, {2, 5}, {2, 1}, {4, 1}, {5, 3}, {1, 1} };
+    cout << "Вектора до сортировки:\n" ;
+    for (const coord& p : points)
+             cout << "(" << p.x << ", " << p.y << ")" << endl;
+    
+    sortpoints(points);
+    cout << "\nВектора после сортировки:\n";
+    for (const coord& p : points)
+             cout << "(" << p.x << ", " << p.y << ")" << endl;
+}
