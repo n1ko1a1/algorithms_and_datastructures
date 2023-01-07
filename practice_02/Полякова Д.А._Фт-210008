@@ -1,0 +1,39 @@
+#include <string>
+#include <vector>
+#include <iostream>
+#include <climits>
+void Print(std::vector<int>& v) {
+	for (int i = 0; i < v.size(); i++) {
+		std::cout << v[i] << std::endl;
+	}
+}
+void qsort(std::vector<int>& v, int one, int last) {
+	if (one < last) {
+		int l = one;
+		int j = last;
+		int mid = v[(l + j) / 2];
+		do {
+			while (v[l] < mid)
+				l++;
+			while (v[j] > mid)
+				j--;
+			if (l <= j) {
+				int tmp = v[l];
+				v[l] = v[j];
+				v[j] = tmp;
+
+				l++;
+				j--;
+			}
+		} while (l < j);
+		qsort(v, one, j);
+		qsort(v, l, last);
+	}
+}
+
+int main()
+{
+	std::vector<int> nums = {47, 10, 65, 84, 20, 24, 29, 32, 21, 75};
+	qsort(nums, 0, nums.size() - 1);
+	Print(nums);
+}
