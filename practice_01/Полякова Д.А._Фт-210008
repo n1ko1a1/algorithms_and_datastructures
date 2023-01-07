@@ -1,0 +1,84 @@
+#include <iostream>
+#include <string>
+
+bool CheckString(std::string words)	
+{
+	for (char c : words)
+	{
+		if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+			return true;
+	}
+	return false;
+}
+
+std::string EncryptWords(std::string words)
+{
+	int step = 3;
+	std::string EW = "";
+	for (char c : words)
+	{	
+		if ((c >= 65 && c <= 90 - step) || (c >= 97 && c <= 122 - step))
+			EW += c + step;
+		else if ((c > 90 - step && c <= 90) || (c > 122 - step && c <= 122))
+			EW += 65 - 1 + c % (90 - step);
+		else
+			EW += c;
+	}
+	return EW;
+}
+
+std::string DecryptWords(std::string words)
+{
+	int step = 3;
+	std::string EW = "";
+	for (char c : words)
+	{	
+		if ((c >= 65 + step && c <= 90) || (c >= 97 + step && c <= 122))
+			EW += c - step;
+		else if (c >= 65 && c < 65 + step)
+			EW += 90 + 1 - step + c % 65;
+		else if (c >= 97 && c < 97 + step)
+			EW += 122 + 1 - step + c % 97;
+		else
+			EW += c;
+	}
+	return EW;
+}
+
+int main()
+{
+	std::string words;
+	char solution;
+	std::string resultlt;
+
+	while(true)
+	{
+		std::cout << "Введите слова для шифрования/расшифровки с шагом 3(на английском языке): ";
+		std::getline(std::cin, words);
+		if (CheckString(words))
+			break;
+		else
+			std::cout << "Вы не ввели ни одного английского символа. Попробуй снова\n" << std::endl;
+	}
+
+	while (true)
+	{
+		std::cout << "Введите действие d-расшифровать, e-шифровать: ";
+		std::cin >> solution;
+		if (solution == 'd')
+		{
+			std::cout << DecryptWords(words) << std::endl;
+			break;
+		}
+		else if (solution == 'e')
+		{
+			std::cout << EncryptWords(words) << std::endl;
+			break;
+		}
+		else
+		{
+			std::cout << "Ошибка ввода. Попробуй снова\n" << std::endl;
+		}
+	}
+	return 0;
+}
