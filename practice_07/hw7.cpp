@@ -13,7 +13,7 @@ struct Point {
 };
 
 bool Comparer(const Point& p1, const Point& p2) {
-    return sqrt(p1.x * p1.x + p1.y * p1.y) < sqrt(p2.x * p2.x + p2.y * p2.y);
+    return (atan2(p1.y, p1.x) > atan2(p2.y, p2.x));
 }
 
 void PointsSorter(std::vector<Point>& points) {
