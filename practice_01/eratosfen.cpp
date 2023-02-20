@@ -1,6 +1,6 @@
 #include <iostream>
 
-void GetPrimeValues(int* arr, int len)
+void PrintNumbersArray(int* arr, int len)
 {
     for (int i = 2; i < len + 1; i++) {
         if (arr[i] != 0) {
@@ -12,7 +12,7 @@ void GetPrimeValues(int* arr, int len)
 }
 
 
-void FillList(int* arr, int len)
+void FillNumbersArray(int* arr, int len)
 {
     for (int i = 0; i < len + 1; i++) {
         arr[i] = i;
@@ -29,8 +29,8 @@ int main() {
     std::cin >> n;
 
     int* numbers = new int[n + 1];
-    FillList(numbers, n);
-    GetPrimeValues(numbers, n);
+    FillNumbersArray(numbers, n);
+    PrintNumbersArray(numbers, n);
 
     return 0;
 }
