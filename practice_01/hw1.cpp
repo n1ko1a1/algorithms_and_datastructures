@@ -33,7 +33,8 @@ void PrintBoolArray(bool* arr, int len)
 }
 
 int main(){
-    int n = 100;
+    int n;
+    cin>>n;
     bool* numbers = new bool[n];
     FillBoolArray(numbers, n);
     resheto(numbers, n);
