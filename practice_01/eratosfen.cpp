@@ -1,6 +1,5 @@
 #include <iostream>
 void PrintBoolArray(bool* arr, int len)
-//sdsdsds
 {
     for( int i =0; i < len; i++)
     {
